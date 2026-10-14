@@ -30,7 +30,19 @@ footer a { color:var(--muted); }
 article { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; font-size:14px; }
 article h1 { font-size:20px; }
 </style>
-
+<script>
+  (function () {
+    var from = (new URLSearchParams(location.search).get('from') || 'direct').toLowerCase().replace(/[^a-z]/g, '').slice(0, 10) || 'direct';
+    window.goatcounter = { path: function (p) { return location.pathname.replace(/index\.html$/, '') + 'from/' + from; } };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[data-clip]');
+      if (a && window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'go/' + a.getAttribute('data-clip') + '/' + from, title: a.getAttribute('data-title'), event: true });
+      }
+    });
+  })();
+</script>
+<script data-goatcounter="https://sayugarden.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <main>
