@@ -61,7 +61,15 @@ article h1 { font-size:20px; }
   </header>
   <section>
     <input id="find" class="find" type="search" placeholder="영상에서 본 글 찾기 (제목 · 글 번호)" aria-label="글 찾기">
-    <h2 id="findNote">최근 30편 · 전체 81편</h2>
+    <h2 id="findNote">최근 30편 · 전체 82편</h2>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224347323091" target="_blank" rel="noopener" data-clip="clip_source_20260716_01" data-title="[소리, 머문 위로 17] 이름을 모르고 들은 목소리" data-find="[소리, 머문 위로 17] 이름을 모르고 들은 목소리 224347323091">
+      <img src="thumbs/clip_source_20260716_01.jpg" alt="" loading="lazy">
+      <div class="meta">
+        <span class="date">2026-07-16 · 열정 · No.3091</span>
+        <span class="title">[소리, 머문 위로 17] 이름을 모르고 들은 목소리</span>
+        <span class="go">블로그에서 원문 읽기 →</span>
+      </div>
+    </a>
     <a class="item" href="https://blog.naver.com/mjlee0001/224346716941" target="_blank" rel="noopener" data-clip="clip_source_20260715_01" data-title="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술" data-find="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술 224346716941">
       <img src="thumbs/clip_source_20260715_01.jpg" alt="" loading="lazy">
       <div class="meta">
@@ -294,7 +302,7 @@ article h1 { font-size:20px; }
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224452544884" target="_blank" rel="noopener" data-clip="clip_source_20261025_01" data-title="[사진,짧은 단상 103] 전선 사이로 걸린 낮달" data-find="[사진,짧은 단상 103] 전선 사이로 걸린 낮달 224452544884">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224452544884" target="_blank" rel="noopener" data-clip="clip_source_20261025_01" data-title="[사진,짧은 단상 103] 전선 사이로 걸린 낮달" data-find="[사진,짧은 단상 103] 전선 사이로 걸린 낮달 224452544884" hidden>
       <img src="thumbs/clip_source_20261025_01.jpg" alt="" loading="lazy">
       <div class="meta">
         <span class="date">2026-10-25 · 깊음 · No.4884</span>
@@ -721,7 +729,7 @@ article h1 { font-size:20px; }
         var show = q ? a.getAttribute('data-find').indexOf(q) >= 0 : i < 30;
         a.hidden = !show; if (show) shown++;
       });
-      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 81편';
+      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 82편';
     });
   })();
 </script>
