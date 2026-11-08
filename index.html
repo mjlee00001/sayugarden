@@ -61,7 +61,15 @@ article h1 { font-size:20px; }
   </header>
   <section>
     <input id="find" class="find" type="search" placeholder="영상에서 본 글 찾기 (제목 · 글 번호)" aria-label="글 찾기">
-    <h2 id="findNote">최근 30편 · 전체 99편</h2>
+    <h2 id="findNote">최근 30편 · 전체 100편</h2>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224369843464" target="_blank" rel="noopener" data-clip="clip_source_20260807_01" data-title="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여" data-find="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여 224369843464">
+      <img src="thumbs/clip_source_20260807_01.jpg" alt="" loading="lazy">
+      <div class="meta">
+        <span class="date">2026-08-07 · 깊음 · No.3464</span>
+        <span class="title">[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여</span>
+        <span class="go">블로그에서 원문 읽기 →</span>
+      </div>
+    </a>
     <a class="item" href="https://blog.naver.com/mjlee0001/224466535662" target="_blank" rel="noopener" data-clip="clip_source_20261106_01" data-title="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억)" data-find="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억) 224466535662">
       <img src="thumbs/clip_source_20261106_01.jpg" alt="" loading="lazy">
       <div class="meta">
@@ -294,7 +302,7 @@ article h1 { font-size:20px; }
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224313701101" target="_blank" rel="noopener" data-clip="clip_source_20260613_01" data-title="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것" data-find="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것 224313701101">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224313701101" target="_blank" rel="noopener" data-clip="clip_source_20260613_01" data-title="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것" data-find="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것 224313701101" hidden>
       <img src="thumbs/clip_source_20260613_01.jpg" alt="" loading="lazy">
       <div class="meta">
         <span class="date">2026-06-13 · 깊음 · No.1101</span>
@@ -865,7 +873,7 @@ article h1 { font-size:20px; }
         var show = q ? a.getAttribute('data-find').indexOf(q) >= 0 : i < 30;
         a.hidden = !show; if (show) shown++;
       });
-      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 99편';
+      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 100편';
     });
   })();
 </script>
