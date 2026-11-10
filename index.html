@@ -61,7 +61,15 @@ article h1 { font-size:20px; }
   </header>
   <section>
     <input id="find" class="find" type="search" placeholder="영상에서 본 글 찾기 (제목 · 글 번호)" aria-label="글 찾기">
-    <h2 id="findNote">최근 30편 · 전체 107편</h2>
+    <h2 id="findNote">최근 30편 · 전체 108편</h2>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224393719477" target="_blank" rel="noopener" data-clip="clip_source_20260829_01" data-title="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전)" data-find="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전) 224393719477">
+      <img src="thumbs/clip_source_20260829_01.jpg" alt="" loading="lazy">
+      <div class="meta">
+        <span class="date">2026-08-29 · 열정 · No.9477</span>
+        <span class="title">[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전)</span>
+        <span class="go">블로그에서 원문 읽기 →</span>
+      </div>
+    </a>
     <a class="item" href="https://blog.naver.com/mjlee0001/224468636995" target="_blank" rel="noopener" data-clip="clip_source_20261108_01" data-title="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수)" data-find="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수) 224468636995">
       <img src="thumbs/clip_source_20261108_01.jpg" alt="" loading="lazy">
       <div class="meta">
@@ -294,7 +302,7 @@ article h1 { font-size:20px; }
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224342725139" target="_blank" rel="noopener" data-clip="clip_source_20260711_01" data-title="[COSMOS_Log.007] 바다를 안다는 착각, 한 방울을 안다는 사실" data-find="[cosmos_log.007] 바다를 안다는 착각, 한 방울을 안다는 사실 224342725139">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224342725139" target="_blank" rel="noopener" data-clip="clip_source_20260711_01" data-title="[COSMOS_Log.007] 바다를 안다는 착각, 한 방울을 안다는 사실" data-find="[cosmos_log.007] 바다를 안다는 착각, 한 방울을 안다는 사실 224342725139" hidden>
       <img src="thumbs/clip_source_20260711_01.jpg" alt="" loading="lazy">
       <div class="meta">
         <span class="date">2026-07-11 · 깊음 · No.5139</span>
@@ -929,7 +937,7 @@ article h1 { font-size:20px; }
         var show = q ? a.getAttribute('data-find').indexOf(q) >= 0 : i < 30;
         a.hidden = !show; if (show) shown++;
       });
-      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 107편';
+      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 108편';
     });
   })();
 </script>
