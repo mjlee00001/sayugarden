@@ -61,7 +61,15 @@ article h1 { font-size:20px; }
   </header>
   <section>
     <input id="find" class="find" type="search" placeholder="영상에서 본 글 찾기 (제목 · 글 번호)" aria-label="글 찾기">
-    <h2 id="findNote">최근 30편 · 전체 111편</h2>
+    <h2 id="findNote">최근 30편 · 전체 112편</h2>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224393988664" target="_blank" rel="noopener" data-clip="clip_source_20260830_01" data-title="[프리라이팅 159] 두려움, 그것이 증거일 거다" data-find="[프리라이팅 159] 두려움, 그것이 증거일 거다 224393988664">
+      <img src="thumbs/clip_source_20260830_01.jpg" alt="" loading="lazy">
+      <div class="meta">
+        <span class="date">2026-08-30 · 깊음 · No.8664</span>
+        <span class="title">[프리라이팅 159] 두려움, 그것이 증거일 거다</span>
+        <span class="go">블로그에서 원문 읽기 →</span>
+      </div>
+    </a>
     <a class="item" href="https://blog.naver.com/mjlee0001/224469932454" target="_blank" rel="noopener" data-clip="clip_source_20261109_01" data-title="[第17書信] 조건이 시작을 삼킨다" data-find="[第17書信] 조건이 시작을 삼킨다 224469932454">
       <img src="thumbs/clip_source_20261109_01.jpg" alt="" loading="lazy">
       <div class="meta">
@@ -294,7 +302,7 @@ article h1 { font-size:20px; }
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224347323091" target="_blank" rel="noopener" data-clip="clip_source_20260716_01" data-title="[소리, 머문 위로 17] 이름을 모르고 들은 목소리" data-find="[소리, 머문 위로 17] 이름을 모르고 들은 목소리 224347323091">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224347323091" target="_blank" rel="noopener" data-clip="clip_source_20260716_01" data-title="[소리, 머문 위로 17] 이름을 모르고 들은 목소리" data-find="[소리, 머문 위로 17] 이름을 모르고 들은 목소리 224347323091" hidden>
       <img src="thumbs/clip_source_20260716_01.jpg" alt="" loading="lazy">
       <div class="meta">
         <span class="date">2026-07-16 · 열정 · No.3091</span>
@@ -961,7 +969,7 @@ article h1 { font-size:20px; }
         var show = q ? a.getAttribute('data-find').indexOf(q) >= 0 : i < 30;
         a.hidden = !show; if (show) shown++;
       });
-      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 111편';
+      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 112편';
     });
   })();
 </script>
