@@ -26,7 +26,22 @@ h2 { font-size:15px; margin:26px 0 10px; color:var(--muted); font-weight:600; }
 .item .title { font-size:15px; font-weight:600; line-height:1.4; overflow-wrap:anywhere; }
 .item .go { font-size:12px; color:var(--accent); }
 .find { width:100%; font:inherit; font-size:15px; padding:10px 14px; border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--text); }
-.item[hidden] { display:none; }
+.item[hidden], .more[hidden], .badge[hidden], section[hidden] { display:none; }
+.grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; margin-bottom:8px; }
+@media (min-width:480px) { .grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+.tile { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; color:inherit; text-decoration:none; }
+.tile:hover { border-color:var(--accent); }
+.tile img { width:100%; aspect-ratio:9/16; object-fit:cover; background:var(--line); display:block; }
+.tile .meta { display:flex; flex-direction:column; gap:3px; padding:8px; min-width:0; }
+.tile .date { font-size:11px; color:var(--muted); }
+.tile .date:not(.posted) { display:none; }
+.tile .title { font-size:13px; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
+.tile .go { display:none; }
+.item.featured { flex-direction:column; padding:14px; border:2px solid var(--accent); }
+.item.featured img { width:100%; height:auto; aspect-ratio:9/16; max-height:420px; }
+.item.featured .title { font-size:18px; }
+.badge { align-self:flex-start; font-size:12px; font-weight:600; padding:2px 10px; border-radius:999px; background:var(--accent-weak); color:var(--accent); }
+.more { display:block; width:100%; font:inherit; font-size:14px; padding:10px; margin-top:4px; border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--text); cursor:pointer; }
 footer { margin-top:30px; text-align:center; font-size:12px; color:var(--muted); }
 footer a { color:var(--muted); }
 article { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; font-size:14px; }
@@ -59,1070 +74,1292 @@ article h1 { font-size:20px; }
       <a class="" href="https://www.facebook.com/1385928921268207" target="_blank" rel="noopener">Facebook</a>
     </nav>
   </header>
+  <section id="recent" hidden>
+    <h2 id="recentTitle"></h2>
+    <div id="recentGrid" class="grid"></div>
+  </section>
   <section>
     <input id="find" class="find" type="search" placeholder="영상에서 본 글 찾기 (제목 · 글 번호)" aria-label="글 찾기">
     <h2 id="findNote">최근 30편 · 전체 131편</h2>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224475825768" target="_blank" rel="noopener" data-clip="clip_source_20261114_01" data-title="[소리, 머문 위로 23] 꿈꾸던 어른이 되었나요?" data-find="[소리, 머문 위로 23] 꿈꾸던 어른이 되었나요? 224475825768">
+    <div id="list">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224475825768" target="_blank" rel="noopener" data-clip="clip_source_20261114_01" data-title="[소리, 머문 위로 23] 꿈꾸던 어른이 되었나요?" data-number="224475825768" data-find="[소리, 머문 위로 23] 꿈꾸던 어른이 되었나요? 224475825768" data-ig="2026-11-15T23:33:00.056Z" data-th="2026-11-15T23:34:14.795Z" data-fb="2026-11-15T23:34:54.274Z" data-yt="2026-11-15T23:35:18.322Z">
       <img src="thumbs/clip_source_20261114_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-14 · 깊음 · No.5768</span>
         <span class="title">[소리, 머문 위로 23] 꿈꾸던 어른이 되었나요?</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224378937589" target="_blank" rel="noopener" data-clip="clip_source_20260815_01" data-title="[COSMOS_Log.008] 바닷길은 항상 열려 있었다" data-find="[cosmos_log.008] 바닷길은 항상 열려 있었다 224378937589">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224378937589" target="_blank" rel="noopener" data-clip="clip_source_20260815_01" data-title="[COSMOS_Log.008] 바닷길은 항상 열려 있었다" data-number="224378937589" data-find="[cosmos_log.008] 바닷길은 항상 열려 있었다 224378937589" data-ig="2026-11-15T11:27:50.849Z" data-th="2026-11-15T11:28:54.372Z" data-fb="2026-11-15T11:29:41.344Z" data-yt="2026-11-15T11:30:29.430Z">
       <img src="thumbs/clip_source_20260815_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-15 · 깊음 · No.7589</span>
         <span class="title">[COSMOS_Log.008] 바닷길은 항상 열려 있었다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224377845924" target="_blank" rel="noopener" data-clip="clip_source_20260814_01" data-title="[소리, 머문 위로 19] 여전히, 절룩거리네" data-find="[소리, 머문 위로 19] 여전히, 절룩거리네 224377845924">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224377845924" target="_blank" rel="noopener" data-clip="clip_source_20260814_01" data-title="[소리, 머문 위로 19] 여전히, 절룩거리네" data-number="224377845924" data-find="[소리, 머문 위로 19] 여전히, 절룩거리네 224377845924" data-ig="2026-11-15T07:58:12.408Z" data-th="2026-11-15T07:59:28.094Z" data-fb="2026-11-15T08:00:16.801Z" data-yt="2026-11-15T08:01:05.821Z">
       <img src="thumbs/clip_source_20260814_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-14 · 깊음 · No.5924</span>
         <span class="title">[소리, 머문 위로 19] 여전히, 절룩거리네</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224399007164" target="_blank" rel="noopener" data-clip="clip_source_20260903_01" data-title="[032 나를 세우는 글쓰기] 성장은 계단식입니다" data-find="[032 나를 세우는 글쓰기] 성장은 계단식입니다 224399007164">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224399007164" target="_blank" rel="noopener" data-clip="clip_source_20260903_01" data-title="[032 나를 세우는 글쓰기] 성장은 계단식입니다" data-number="224399007164" data-find="[032 나를 세우는 글쓰기] 성장은 계단식입니다 224399007164" data-ig="2026-11-15T02:48:21.478Z" data-th="2026-11-15T02:49:45.140Z" data-fb="2026-11-15T02:50:23.976Z" data-yt="2026-11-15T02:51:14.372Z">
       <img src="thumbs/clip_source_20260903_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-09-03 · 열정 · No.7164</span>
         <span class="title">[032 나를 세우는 글쓰기] 성장은 계단식입니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224474022786" target="_blank" rel="noopener" data-clip="clip_source_20261113_01" data-title="[공감,작은 생각 210] 그 강의실에 내가 있었다면" data-find="[공감,작은 생각 210] 그 강의실에 내가 있었다면 224474022786">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224474022786" target="_blank" rel="noopener" data-clip="clip_source_20261113_01" data-title="[공감,작은 생각 210] 그 강의실에 내가 있었다면" data-number="224474022786" data-find="[공감,작은 생각 210] 그 강의실에 내가 있었다면 224474022786" data-yt="2026-11-15T00:53:09.123Z" data-ig="2026-11-15T01:01:24.953Z" data-th="2026-11-15T00:56:22.423Z" data-fb="2026-11-15T00:56:58.209Z">
       <img src="thumbs/clip_source_20261113_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-13 · 깊음 · No.2786</span>
         <span class="title">[공감,작은 생각 210] 그 강의실에 내가 있었다면</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224380950338" target="_blank" rel="noopener" data-clip="clip_source_20260818_01" data-title="[192] 마케터의靈感 - 무지성의 역설 (5/6) - 진짜 지성은 &#39;비움의 시스템&#39;을 설계하는 것" data-find="[192] 마케터의靈感 - 무지성의 역설 (5/6) - 진짜 지성은 &#39;비움의 시스템&#39;을 설계하는 것 224380950338">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224380950338" target="_blank" rel="noopener" data-clip="clip_source_20260818_01" data-title="[192] 마케터의靈感 - 무지성의 역설 (5/6) - 진짜 지성은 &#39;비움의 시스템&#39;을 설계하는 것" data-number="224380950338" data-find="[192] 마케터의靈感 - 무지성의 역설 (5/6) - 진짜 지성은 &#39;비움의 시스템&#39;을 설계하는 것 224380950338" data-ig="2026-11-14T11:27:47.139Z" data-th="2026-11-14T11:28:53.106Z" data-fb="2026-11-14T11:29:37.037Z" data-yt="2026-11-14T11:30:22.757Z">
       <img src="thumbs/clip_source_20260818_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-18 · 깊음 · No.0338</span>
         <span class="title">[192] 마케터의靈感 - 무지성의 역설 (5/6) - 진짜 지성은 &#39;비움의 시스템&#39;을 설계하는 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224380908765" target="_blank" rel="noopener" data-clip="clip_source_20260817_01" data-title="[191] 마케터의靈感 - 무지성의 역설 (4/6) - 완벽한 기획서보다 어설픈 실행이 무서운 이유" data-find="[191] 마케터의靈感 - 무지성의 역설 (4/6) - 완벽한 기획서보다 어설픈 실행이 무서운 이유 224380908765">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224380908765" target="_blank" rel="noopener" data-clip="clip_source_20260817_01" data-title="[191] 마케터의靈感 - 무지성의 역설 (4/6) - 완벽한 기획서보다 어설픈 실행이 무서운 이유" data-number="224380908765" data-find="[191] 마케터의靈感 - 무지성의 역설 (4/6) - 완벽한 기획서보다 어설픈 실행이 무서운 이유 224380908765" data-ig="2026-11-14T07:58:03.422Z" data-th="2026-11-14T07:59:11.232Z" data-fb="2026-11-14T07:59:56.804Z" data-yt="2026-11-14T08:00:21.163Z">
       <img src="thumbs/clip_source_20260817_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-17 · 깊음 · No.8765</span>
         <span class="title">[191] 마케터의靈感 - 무지성의 역설 (4/6) - 완벽한 기획서보다 어설픈 실행이 무서운 이유</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224397807537" target="_blank" rel="noopener" data-clip="clip_source_20260902_01" data-title="[43] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(2화) - 무질서한 우연들이 모여 법칙이 된다" data-find="[43] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(2화) - 무질서한 우연들이 모여 법칙이 된다 224397807537">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224397807537" target="_blank" rel="noopener" data-clip="clip_source_20260902_01" data-title="[43] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(2화) - 무질서한 우연들이 모여 법칙이 된다" data-number="224397807537" data-find="[43] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(2화) - 무질서한 우연들이 모여 법칙이 된다 224397807537" data-ig="2026-11-14T02:48:04.487Z" data-th="2026-11-14T02:49:05.477Z" data-fb="2026-11-14T02:49:45.881Z" data-yt="2026-11-14T02:50:23.142Z">
       <img src="thumbs/clip_source_20260902_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-09-02 · 열정 · No.7537</span>
         <span class="title">[43] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(2화) - 무질서한 우연들이 모여 법칙이 된다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224472549847" target="_blank" rel="noopener" data-clip="clip_source_20261112_01" data-title="[프리라이팅 172] &#39;나는 왜 쓰는가&#39;의 연재를 시작하며 (ft. 프롤로그)" data-find="[프리라이팅 172] &#39;나는 왜 쓰는가&#39;의 연재를 시작하며 (ft. 프롤로그) 224472549847">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224472549847" target="_blank" rel="noopener" data-clip="clip_source_20261112_01" data-title="[프리라이팅 172] &#39;나는 왜 쓰는가&#39;의 연재를 시작하며 (ft. 프롤로그)" data-number="224472549847" data-find="[프리라이팅 172] &#39;나는 왜 쓰는가&#39;의 연재를 시작하며 (ft. 프롤로그) 224472549847" data-ig="2026-11-13T23:33:09.377Z" data-th="2026-11-13T23:34:31.580Z" data-fb="2026-11-13T23:35:11.000Z" data-yt="2026-11-13T23:36:04.567Z">
       <img src="thumbs/clip_source_20261112_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-12 · 깊음 · No.9847</span>
         <span class="title">[프리라이팅 172] &#39;나는 왜 쓰는가&#39;의 연재를 시작하며 (ft. 프롤로그)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224383177968" target="_blank" rel="noopener" data-clip="clip_source_20260820_01" data-title="[프리라이팅 158] 내 사전에 &#39;이해&#39;라는 단어는 없다" data-find="[프리라이팅 158] 내 사전에 &#39;이해&#39;라는 단어는 없다 224383177968">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224383177968" target="_blank" rel="noopener" data-clip="clip_source_20260820_01" data-title="[프리라이팅 158] 내 사전에 &#39;이해&#39;라는 단어는 없다" data-number="224383177968" data-find="[프리라이팅 158] 내 사전에 &#39;이해&#39;라는 단어는 없다 224383177968" data-ig="2026-11-13T11:28:10.758Z" data-th="2026-11-13T11:29:23.527Z" data-fb="2026-11-13T11:30:17.663Z" data-yt="2026-11-13T11:30:53.004Z">
       <img src="thumbs/clip_source_20260820_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-20 · 깊음 · No.7968</span>
         <span class="title">[프리라이팅 158] 내 사전에 &#39;이해&#39;라는 단어는 없다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224382033659" target="_blank" rel="noopener" data-clip="clip_source_20260819_01" data-title="[프리라이팅 157] 나는 매일 나에게 &#39;좋아요&#39;를 누른다" data-find="[프리라이팅 157] 나는 매일 나에게 &#39;좋아요&#39;를 누른다 224382033659">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224382033659" target="_blank" rel="noopener" data-clip="clip_source_20260819_01" data-title="[프리라이팅 157] 나는 매일 나에게 &#39;좋아요&#39;를 누른다" data-number="224382033659" data-find="[프리라이팅 157] 나는 매일 나에게 &#39;좋아요&#39;를 누른다 224382033659" data-ig="2026-11-13T07:57:58.347Z" data-th="2026-11-13T07:59:14.264Z" data-fb="2026-11-13T07:59:57.280Z" data-yt="2026-11-13T08:00:48.064Z">
       <img src="thumbs/clip_source_20260819_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-19 · 밝음 · No.3659</span>
         <span class="title">[프리라이팅 157] 나는 매일 나에게 &#39;좋아요&#39;를 누른다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224396750410" target="_blank" rel="noopener" data-clip="clip_source_20260901_01" data-title="[195] 마케터의靈感 - 왜, 나는 일기 대신 블로그를 쓰는가" data-find="[195] 마케터의靈感 - 왜, 나는 일기 대신 블로그를 쓰는가 224396750410">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224396750410" target="_blank" rel="noopener" data-clip="clip_source_20260901_01" data-title="[195] 마케터의靈感 - 왜, 나는 일기 대신 블로그를 쓰는가" data-number="224396750410" data-find="[195] 마케터의靈感 - 왜, 나는 일기 대신 블로그를 쓰는가 224396750410" data-ig="2026-11-13T02:48:06.742Z" data-th="2026-11-13T02:49:31.594Z" data-fb="2026-11-13T02:50:24.879Z" data-yt="2026-11-13T02:51:09.639Z">
       <img src="thumbs/clip_source_20260901_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-09-01 · 깊음 · No.0410</span>
         <span class="title">[195] 마케터의靈感 - 왜, 나는 일기 대신 블로그를 쓰는가</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224471394596" target="_blank" rel="noopener" data-clip="clip_source_20261111_01" data-title="[공감,작은 생각 209] 임시저장소에서 2년을 머문 한 문장 (ft. 듀크 엘링턴, 그리고 1%)" data-find="[공감,작은 생각 209] 임시저장소에서 2년을 머문 한 문장 (ft. 듀크 엘링턴, 그리고 1%) 224471394596">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224471394596" target="_blank" rel="noopener" data-clip="clip_source_20261111_01" data-title="[공감,작은 생각 209] 임시저장소에서 2년을 머문 한 문장 (ft. 듀크 엘링턴, 그리고 1%)" data-number="224471394596" data-find="[공감,작은 생각 209] 임시저장소에서 2년을 머문 한 문장 (ft. 듀크 엘링턴, 그리고 1%) 224471394596" data-ig="2026-11-12T23:33:07.814Z" data-th="2026-11-12T23:34:22.530Z" data-fb="2026-11-12T23:35:06.370Z" data-yt="2026-11-12T23:35:51.353Z">
       <img src="thumbs/clip_source_20261111_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-11 · 열정 · No.4596</span>
         <span class="title">[공감,작은 생각 209] 임시저장소에서 2년을 머문 한 문장 (ft. 듀크 엘링턴, 그리고 1%)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224385978494" target="_blank" rel="noopener" data-clip="clip_source_20260822_01" data-title="[030 나를 세우는 글쓰기] 이 산은 반드시 넘어야 합니다" data-find="[030 나를 세우는 글쓰기] 이 산은 반드시 넘어야 합니다 224385978494">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224385978494" target="_blank" rel="noopener" data-clip="clip_source_20260822_01" data-title="[030 나를 세우는 글쓰기] 이 산은 반드시 넘어야 합니다" data-number="224385978494" data-find="[030 나를 세우는 글쓰기] 이 산은 반드시 넘어야 합니다 224385978494" data-ig="2026-11-12T11:27:48.808Z" data-th="2026-11-12T11:29:11.687Z" data-fb="2026-11-12T11:29:57.393Z" data-yt="2026-11-12T11:30:33.467Z">
       <img src="thumbs/clip_source_20260822_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-22 · 열정 · No.8494</span>
         <span class="title">[030 나를 세우는 글쓰기] 이 산은 반드시 넘어야 합니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224384335273" target="_blank" rel="noopener" data-clip="clip_source_20260821_01" data-title="[193] 마케터의靈感 - 무지성의 역설 (6/6) - 지성의 스위치를 끄고, 오늘 딱 한 걸음만 (ft. 에필로그)" data-find="[193] 마케터의靈感 - 무지성의 역설 (6/6) - 지성의 스위치를 끄고, 오늘 딱 한 걸음만 (ft. 에필로그) 224384335273">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224384335273" target="_blank" rel="noopener" data-clip="clip_source_20260821_01" data-title="[193] 마케터의靈感 - 무지성의 역설 (6/6) - 지성의 스위치를 끄고, 오늘 딱 한 걸음만 (ft. 에필로그)" data-number="224384335273" data-find="[193] 마케터의靈感 - 무지성의 역설 (6/6) - 지성의 스위치를 끄고, 오늘 딱 한 걸음만 (ft. 에필로그) 224384335273" data-ig="2026-11-12T07:58:34.926Z" data-th="2026-11-12T07:59:51.115Z" data-fb="2026-11-12T08:00:58.394Z" data-yt="2026-11-12T08:01:46.108Z">
       <img src="thumbs/clip_source_20260821_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-21 · 열정 · No.5273</span>
         <span class="title">[193] 마케터의靈感 - 무지성의 역설 (6/6) - 지성의 스위치를 끄고, 오늘 딱 한 걸음만 (ft. 에필로그)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224394836098" target="_blank" rel="noopener" data-clip="clip_source_20260831_01" data-title="[프리라이팅 160] 내가 먼저 살아있어야 글도 살아난다" data-find="[프리라이팅 160] 내가 먼저 살아있어야 글도 살아난다 224394836098">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224394836098" target="_blank" rel="noopener" data-clip="clip_source_20260831_01" data-title="[프리라이팅 160] 내가 먼저 살아있어야 글도 살아난다" data-number="224394836098" data-find="[프리라이팅 160] 내가 먼저 살아있어야 글도 살아난다 224394836098" data-ig="2026-11-12T02:48:21.568Z" data-th="2026-11-12T02:49:41.999Z" data-fb="2026-11-12T02:50:18.192Z" data-yt="2026-11-12T02:50:51.422Z">
       <img src="thumbs/clip_source_20260831_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-31 · 깊음 · No.6098</span>
         <span class="title">[프리라이팅 160] 내가 먼저 살아있어야 글도 살아난다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224470027423" target="_blank" rel="noopener" data-clip="clip_source_20261110_01" data-title="[통찰 94] 파도는 바다의 일, 항해는 시스템의 일 (4/5) 검색 - 정답을 찾던 조회에서, 과거의 나와 만나는 탐색으로" data-find="[통찰 94] 파도는 바다의 일, 항해는 시스템의 일 (4/5) 검색 - 정답을 찾던 조회에서, 과거의 나와 만나는 탐색으로 224470027423">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224470027423" target="_blank" rel="noopener" data-clip="clip_source_20261110_01" data-title="[통찰 94] 파도는 바다의 일, 항해는 시스템의 일 (4/5) 검색 - 정답을 찾던 조회에서, 과거의 나와 만나는 탐색으로" data-number="224470027423" data-find="[통찰 94] 파도는 바다의 일, 항해는 시스템의 일 (4/5) 검색 - 정답을 찾던 조회에서, 과거의 나와 만나는 탐색으로 224470027423" data-ig="2026-11-11T23:33:04.103Z" data-th="2026-11-11T23:34:19.308Z" data-fb="2026-11-11T23:34:56.062Z" data-yt="2026-11-11T23:35:30.793Z">
       <img src="thumbs/clip_source_20261110_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-10 · 깊음 · No.7423</span>
         <span class="title">[통찰 94] 파도는 바다의 일, 항해는 시스템의 일 (4/5) 검색 - 정답을 찾던 조회에서, 과거의 나와 만나는 탐색으로</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224388275183" target="_blank" rel="noopener" data-clip="clip_source_20260825_01" data-title="[AI, 사유의 거울 11] 30일간의 산책(6화) - &#39;거울&#39;이라 부르기로 했다" data-find="[ai, 사유의 거울 11] 30일간의 산책(6화) - &#39;거울&#39;이라 부르기로 했다 224388275183">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224388275183" target="_blank" rel="noopener" data-clip="clip_source_20260825_01" data-title="[AI, 사유의 거울 11] 30일간의 산책(6화) - &#39;거울&#39;이라 부르기로 했다" data-number="224388275183" data-find="[ai, 사유의 거울 11] 30일간의 산책(6화) - &#39;거울&#39;이라 부르기로 했다 224388275183" data-ig="2026-11-11T11:27:54.868Z" data-th="2026-11-11T11:29:19.301Z" data-fb="2026-11-11T11:30:13.260Z" data-yt="2026-11-11T11:30:46.932Z">
       <img src="thumbs/clip_source_20260825_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-25 · 깊음 · No.5183</span>
         <span class="title">[AI, 사유의 거울 11] 30일간의 산책(6화) - &#39;거울&#39;이라 부르기로 했다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224387258247" target="_blank" rel="noopener" data-clip="clip_source_20260823_01" data-title="[1퍼센트 진화론] 15. 실패는 데이터다 (ft. 용기의 시작이란)" data-find="[1퍼센트 진화론] 15. 실패는 데이터다 (ft. 용기의 시작이란) 224387258247">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224387258247" target="_blank" rel="noopener" data-clip="clip_source_20260823_01" data-title="[1퍼센트 진화론] 15. 실패는 데이터다 (ft. 용기의 시작이란)" data-number="224387258247" data-find="[1퍼센트 진화론] 15. 실패는 데이터다 (ft. 용기의 시작이란) 224387258247" data-ig="2026-11-11T07:57:40.404Z" data-th="2026-11-11T07:58:49.761Z" data-fb="2026-11-11T07:59:32.008Z" data-yt="2026-11-11T08:00:31.787Z">
       <img src="thumbs/clip_source_20260823_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-23 · 열정 · No.8247</span>
         <span class="title">[1퍼센트 진화론] 15. 실패는 데이터다 (ft. 용기의 시작이란)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224393988664" target="_blank" rel="noopener" data-clip="clip_source_20260830_01" data-title="[프리라이팅 159] 두려움, 그것이 증거일 거다" data-find="[프리라이팅 159] 두려움, 그것이 증거일 거다 224393988664">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224393988664" target="_blank" rel="noopener" data-clip="clip_source_20260830_01" data-title="[프리라이팅 159] 두려움, 그것이 증거일 거다" data-number="224393988664" data-find="[프리라이팅 159] 두려움, 그것이 증거일 거다 224393988664" data-ig="2026-11-11T02:48:10.143Z" data-th="2026-11-11T02:49:33.141Z" data-fb="2026-11-11T02:50:21.171Z" data-yt="2026-11-11T02:50:58.109Z">
       <img src="thumbs/clip_source_20260830_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-30 · 깊음 · No.8664</span>
         <span class="title">[프리라이팅 159] 두려움, 그것이 증거일 거다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224469932454" target="_blank" rel="noopener" data-clip="clip_source_20261109_01" data-title="[第17書信] 조건이 시작을 삼킨다" data-find="[第17書信] 조건이 시작을 삼킨다 224469932454">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224469932454" target="_blank" rel="noopener" data-clip="clip_source_20261109_01" data-title="[第17書信] 조건이 시작을 삼킨다" data-number="224469932454" data-find="[第17書信] 조건이 시작을 삼킨다 224469932454" data-ig="2026-11-10T23:33:33.509Z" data-th="2026-11-10T23:34:54.156Z" data-fb="2026-11-10T23:35:35.905Z" data-yt="2026-11-10T23:36:20.400Z">
       <img src="thumbs/clip_source_20261109_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-09 · 깊음 · No.2454</span>
         <span class="title">[第17書信] 조건이 시작을 삼킨다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224392222615" target="_blank" rel="noopener" data-clip="clip_source_20260828_01" data-title="[031 나를 세우는 글쓰기] 내 글이 초라해 보일 때가 있습니다" data-find="[031 나를 세우는 글쓰기] 내 글이 초라해 보일 때가 있습니다 224392222615">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224392222615" target="_blank" rel="noopener" data-clip="clip_source_20260828_01" data-title="[031 나를 세우는 글쓰기] 내 글이 초라해 보일 때가 있습니다" data-number="224392222615" data-find="[031 나를 세우는 글쓰기] 내 글이 초라해 보일 때가 있습니다 224392222615" data-ig="2026-11-10T11:25:54.499Z" data-th="2026-11-10T11:27:05.169Z" data-fb="2026-11-10T11:27:47.017Z" data-yt="2026-11-10T11:28:19.541Z">
       <img src="thumbs/clip_source_20260828_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-28 · 깊음 · No.2615</span>
         <span class="title">[031 나를 세우는 글쓰기] 내 글이 초라해 보일 때가 있습니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224390240494" target="_blank" rel="noopener" data-clip="clip_source_20260826_01" data-title="[글쓰기_클래스 12] 쌓는 것이 먼저다 (ft. BPT v0.4 일부 소개 포함)" data-find="[글쓰기_클래스 12] 쌓는 것이 먼저다 (ft. bpt v0.4 일부 소개 포함) 224390240494">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224390240494" target="_blank" rel="noopener" data-clip="clip_source_20260826_01" data-title="[글쓰기_클래스 12] 쌓는 것이 먼저다 (ft. BPT v0.4 일부 소개 포함)" data-number="224390240494" data-find="[글쓰기_클래스 12] 쌓는 것이 먼저다 (ft. bpt v0.4 일부 소개 포함) 224390240494" data-ig="2026-11-10T07:55:55.408Z" data-th="2026-11-10T07:57:16.951Z" data-fb="2026-11-10T07:58:06.485Z" data-yt="2026-11-10T07:58:45.588Z">
       <img src="thumbs/clip_source_20260826_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-26 · 열정 · No.0494</span>
         <span class="title">[글쓰기_클래스 12] 쌓는 것이 먼저다 (ft. BPT v0.4 일부 소개 포함)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224393719477" target="_blank" rel="noopener" data-clip="clip_source_20260829_01" data-title="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전)" data-find="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전) 224393719477">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224393719477" target="_blank" rel="noopener" data-clip="clip_source_20260829_01" data-title="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전)" data-number="224393719477" data-find="[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전) 224393719477" data-ig="2026-11-10T02:46:42.267Z" data-th="2026-11-10T02:48:02.973Z" data-fb="2026-11-10T02:48:54.618Z" data-yt="2026-11-10T02:49:29.843Z">
       <img src="thumbs/clip_source_20260829_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-29 · 열정 · No.9477</span>
         <span class="title">[1퍼센트 진화론] 16. 지루함은 성장의 신호다 (ft. 매너리즘 처방전)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224468636995" target="_blank" rel="noopener" data-clip="clip_source_20261108_01" data-title="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수)" data-find="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수) 224468636995">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224468636995" target="_blank" rel="noopener" data-clip="clip_source_20261108_01" data-title="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수)" data-number="224468636995" data-find="[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수) 224468636995" data-ig="2026-11-09T23:35:36.203Z" data-th="2026-11-09T23:36:55.911Z" data-fb="2026-11-09T23:37:39.962Z" data-yt="2026-11-09T23:38:17.280Z">
       <img src="thumbs/clip_source_20261108_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-08 · 열정 · No.6995</span>
         <span class="title">[프리라이팅 171] 욕심 처방전 (ft. 복용 후 관찰 필수)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224391370481" target="_blank" rel="noopener" data-clip="clip_source_20260827_01" data-title="[作家視線 5] 우리는 왜, 쓰면서도 지금 여기에 없는 걸까요" data-find="[作家視線 5] 우리는 왜, 쓰면서도 지금 여기에 없는 걸까요 224391370481">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224391370481" target="_blank" rel="noopener" data-clip="clip_source_20260827_01" data-title="[作家視線 5] 우리는 왜, 쓰면서도 지금 여기에 없는 걸까요" data-number="224391370481" data-find="[作家視線 5] 우리는 왜, 쓰면서도 지금 여기에 없는 걸까요 224391370481" data-ig="2026-11-09T11:28:42.767Z" data-th="2026-11-09T11:30:11.164Z" data-fb="2026-11-09T11:30:56.515Z" data-yt="2026-11-09T11:31:27.770Z">
       <img src="thumbs/clip_source_20260827_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-27 · 깊음 · No.0481</span>
         <span class="title">[作家視線 5] 우리는 왜, 쓰면서도 지금 여기에 없는 걸까요</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224387275741" target="_blank" rel="noopener" data-clip="clip_source_20260824_01" data-title="[194] 마케터의靈感 - 1%성장주의자 (3/3) : 균형은 어떻게 만들어지는가" data-find="[194] 마케터의靈感 - 1%성장주의자 (3/3) : 균형은 어떻게 만들어지는가 224387275741">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224387275741" target="_blank" rel="noopener" data-clip="clip_source_20260824_01" data-title="[194] 마케터의靈感 - 1%성장주의자 (3/3) : 균형은 어떻게 만들어지는가" data-number="224387275741" data-find="[194] 마케터의靈感 - 1%성장주의자 (3/3) : 균형은 어떻게 만들어지는가 224387275741" data-ig="2026-11-09T07:57:51.814Z" data-th="2026-11-09T07:59:02.662Z" data-fb="2026-11-09T07:59:45.658Z" data-yt="2026-11-09T08:00:35.703Z">
       <img src="thumbs/clip_source_20260824_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-24 · 깊음 · No.5741</span>
         <span class="title">[194] 마케터의靈感 - 1%성장주의자 (3/3) : 균형은 어떻게 만들어지는가</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224379877416" target="_blank" rel="noopener" data-clip="clip_source_20260816_01" data-title="[AI, 사유의 거울 10] 30일간의 산책(5화) - 망치는 목수보다 더 많은 것을 알지 않는다" data-find="[ai, 사유의 거울 10] 30일간의 산책(5화) - 망치는 목수보다 더 많은 것을 알지 않는다 224379877416">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224379877416" target="_blank" rel="noopener" data-clip="clip_source_20260816_01" data-title="[AI, 사유의 거울 10] 30일간의 산책(5화) - 망치는 목수보다 더 많은 것을 알지 않는다" data-number="224379877416" data-find="[ai, 사유의 거울 10] 30일간의 산책(5화) - 망치는 목수보다 더 많은 것을 알지 않는다 224379877416" data-ig="2026-11-09T02:47:52.697Z" data-th="2026-11-09T02:49:10.351Z" data-fb="2026-11-09T02:49:52.536Z" data-yt="2026-11-09T02:50:35.961Z">
       <img src="thumbs/clip_source_20260816_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-16 · 깊음 · No.7416</span>
         <span class="title">[AI, 사유의 거울 10] 30일간의 산책(5화) - 망치는 목수보다 더 많은 것을 알지 않는다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224467638150" target="_blank" rel="noopener" data-clip="clip_source_20261107_01" data-title="[AI, 사유의 거울 14] 우리 모두 2029년까지 살아남기를..." data-find="[ai, 사유의 거울 14] 우리 모두 2029년까지 살아남기를... 224467638150">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224467638150" target="_blank" rel="noopener" data-clip="clip_source_20261107_01" data-title="[AI, 사유의 거울 14] 우리 모두 2029년까지 살아남기를..." data-number="224467638150" data-find="[ai, 사유의 거울 14] 우리 모두 2029년까지 살아남기를... 224467638150" data-ig="2026-11-08T23:33:01.406Z" data-th="2026-11-08T23:34:15.204Z" data-fb="2026-11-08T23:34:57.748Z" data-yt="2026-11-08T23:35:35.167Z">
       <img src="thumbs/clip_source_20261107_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-07 · 깊음 · No.8150</span>
         <span class="title">[AI, 사유의 거울 14] 우리 모두 2029년까지 살아남기를...</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224372311143" target="_blank" rel="noopener" data-clip="clip_source_20260809_01" data-title="[42] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(1편) : 인연은 흐르는 것이다" data-find="[42] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(1편) : 인연은 흐르는 것이다 224372311143">
+    <a class="item" href="https://blog.naver.com/mjlee0001/224372311143" target="_blank" rel="noopener" data-clip="clip_source_20260809_01" data-title="[42] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(1편) : 인연은 흐르는 것이다" data-number="224372311143" data-find="[42] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(1편) : 인연은 흐르는 것이다 224372311143" data-ig="2026-11-08T11:26:50.096Z" data-th="2026-11-08T11:28:12.428Z" data-fb="2026-11-08T11:28:47.366Z" data-yt="2026-11-08T11:29:18.031Z">
       <img src="thumbs/clip_source_20260809_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-09 · 깊음 · No.1143</span>
         <span class="title">[42] 1일 1포스팅 헬퍼 - 매주, 당신의 기록이 돌아온다면(1편) : 인연은 흐르는 것이다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224371558027" target="_blank" rel="noopener" data-clip="clip_source_20260808_01" data-title="[1퍼센트 진화론] 14. 손흥민의 1,000개 슈팅이 뇌에 새겨지는 원리 (ft. 반복은 어떻게 몸에 새겨지는가)" data-find="[1퍼센트 진화론] 14. 손흥민의 1,000개 슈팅이 뇌에 새겨지는 원리 (ft. 반복은 어떻게 몸에 새겨지는가) 224371558027" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224371558027" target="_blank" rel="noopener" data-clip="clip_source_20260808_01" data-title="[1퍼센트 진화론] 14. 손흥민의 1,000개 슈팅이 뇌에 새겨지는 원리 (ft. 반복은 어떻게 몸에 새겨지는가)" data-number="224371558027" data-find="[1퍼센트 진화론] 14. 손흥민의 1,000개 슈팅이 뇌에 새겨지는 원리 (ft. 반복은 어떻게 몸에 새겨지는가) 224371558027" data-ig="2026-11-08T07:57:45.695Z" data-th="2026-11-08T07:58:52.096Z" data-fb="2026-11-08T07:59:32.668Z" data-yt="2026-11-08T07:59:55.092Z" hidden>
       <img src="thumbs/clip_source_20260808_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-08 · 열정 · No.8027</span>
         <span class="title">[1퍼센트 진화론] 14. 손흥민의 1,000개 슈팅이 뇌에 새겨지는 원리 (ft. 반복은 어떻게 몸에 새겨지는가)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224369843464" target="_blank" rel="noopener" data-clip="clip_source_20260807_01" data-title="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여" data-find="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여 224369843464" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224369843464" target="_blank" rel="noopener" data-clip="clip_source_20260807_01" data-title="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여" data-number="224369843464" data-find="[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여 224369843464" data-ig="2026-11-08T02:47:46.118Z" data-th="2026-11-08T02:49:06.988Z" data-fb="2026-11-08T02:49:59.016Z" data-yt="2026-11-08T02:50:37.368Z" hidden>
       <img src="thumbs/clip_source_20260807_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-07 · 깊음 · No.3464</span>
         <span class="title">[188] 마케터의靈感 - 1%성장주의자 (2/3) : 99%의 의미에 대하여</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224466535662" target="_blank" rel="noopener" data-clip="clip_source_20261106_01" data-title="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억)" data-find="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억) 224466535662" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224466535662" target="_blank" rel="noopener" data-clip="clip_source_20261106_01" data-title="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억)" data-number="224466535662" data-find="[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억) 224466535662" data-ig="2026-11-07T23:32:54.663Z" data-th="2026-11-07T23:34:12.180Z" data-fb="2026-11-07T23:34:56.084Z" data-yt="2026-11-07T23:35:55.120Z" hidden>
       <img src="thumbs/clip_source_20261106_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-06 · 서정 · No.5662</span>
         <span class="title">[프리라이팅 170] 가끔은, 고무줄을 풀어 준다 (ft. 레쓰비의 추억)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224364712012" target="_blank" rel="noopener" data-clip="clip_source_20260802_01" data-title="[소리, 머문 위로 18] 빛나는 순간이 다시 오지 않아도" data-find="[소리, 머문 위로 18] 빛나는 순간이 다시 오지 않아도 224364712012" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224364712012" target="_blank" rel="noopener" data-clip="clip_source_20260802_01" data-title="[소리, 머문 위로 18] 빛나는 순간이 다시 오지 않아도" data-number="224364712012" data-find="[소리, 머문 위로 18] 빛나는 순간이 다시 오지 않아도 224364712012" data-ig="2026-11-07T11:25:46.549Z" data-th="2026-11-07T11:27:07.550Z" data-fb="2026-11-07T11:27:44.253Z" data-yt="2026-11-07T11:28:13.251Z" hidden>
       <img src="thumbs/clip_source_20260802_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-02 · 밝음 (긍정·희망) · No.2012</span>
         <span class="title">[소리, 머문 위로 18] 빛나는 순간이 다시 오지 않아도</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224363649034" target="_blank" rel="noopener" data-clip="clip_source_20260801_01" data-title="[185] 마케터의靈感 - 무지성의 역설 (1/6) - 생각이 너무 많아 머뭇거리는 당신에게 (ft. 프롤로그)" data-find="[185] 마케터의靈感 - 무지성의 역설 (1/6) - 생각이 너무 많아 머뭇거리는 당신에게 (ft. 프롤로그) 224363649034" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224363649034" target="_blank" rel="noopener" data-clip="clip_source_20260801_01" data-title="[185] 마케터의靈感 - 무지성의 역설 (1/6) - 생각이 너무 많아 머뭇거리는 당신에게 (ft. 프롤로그)" data-number="224363649034" data-find="[185] 마케터의靈感 - 무지성의 역설 (1/6) - 생각이 너무 많아 머뭇거리는 당신에게 (ft. 프롤로그) 224363649034" data-ig="2026-11-07T07:57:46.035Z" data-th="2026-11-07T07:59:05.284Z" data-fb="2026-11-07T07:59:53.484Z" data-yt="2026-11-07T08:00:30.625Z" hidden>
       <img src="thumbs/clip_source_20260801_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-08-01 · 열정 · No.9034</span>
         <span class="title">[185] 마케터의靈感 - 무지성의 역설 (1/6) - 생각이 너무 많아 머뭇거리는 당신에게 (ft. 프롤로그)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224362584979" target="_blank" rel="noopener" data-clip="clip_source_20260731_01" data-title="[통찰 84] 뇌 사용 설명서 (XIII) 뇌는 왜 나를 피해자로 볼까 (2/4) - 나는 늘 손해부터 셌다" data-find="[통찰 84] 뇌 사용 설명서 (xiii) 뇌는 왜 나를 피해자로 볼까 (2/4) - 나는 늘 손해부터 셌다 224362584979" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224362584979" target="_blank" rel="noopener" data-clip="clip_source_20260731_01" data-title="[통찰 84] 뇌 사용 설명서 (XIII) 뇌는 왜 나를 피해자로 볼까 (2/4) - 나는 늘 손해부터 셌다" data-number="224362584979" data-find="[통찰 84] 뇌 사용 설명서 (xiii) 뇌는 왜 나를 피해자로 볼까 (2/4) - 나는 늘 손해부터 셌다 224362584979" data-ig="2026-11-07T02:46:03.868Z" data-th="2026-11-07T02:47:19.285Z" data-fb="2026-11-07T02:48:06.328Z" data-yt="2026-11-07T02:48:45.664Z" hidden>
       <img src="thumbs/clip_source_20260731_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-31 · 깊음 · No.4979</span>
         <span class="title">[통찰 84] 뇌 사용 설명서 (XIII) 뇌는 왜 나를 피해자로 볼까 (2/4) - 나는 늘 손해부터 셌다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224464435997" target="_blank" rel="noopener" data-clip="clip_source_20261105_01" data-title="[통찰 93] 파도는 바다의 일, 항해는 시스템의 일 (3/5) 모니터링 - 평가받던 지표에서, 나를 알아가는 관찰로" data-find="[통찰 93] 파도는 바다의 일, 항해는 시스템의 일 (3/5) 모니터링 - 평가받던 지표에서, 나를 알아가는 관찰로 224464435997" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224464435997" target="_blank" rel="noopener" data-clip="clip_source_20261105_01" data-title="[통찰 93] 파도는 바다의 일, 항해는 시스템의 일 (3/5) 모니터링 - 평가받던 지표에서, 나를 알아가는 관찰로" data-number="224464435997" data-find="[통찰 93] 파도는 바다의 일, 항해는 시스템의 일 (3/5) 모니터링 - 평가받던 지표에서, 나를 알아가는 관찰로 224464435997" data-ig="2026-11-06T23:32:59.950Z" data-th="2026-11-06T23:34:17.065Z" data-fb="2026-11-06T23:34:53.761Z" data-yt="2026-11-06T23:35:24.124Z" hidden>
       <img src="thumbs/clip_source_20261105_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-05 · 깊음 · No.5997</span>
         <span class="title">[통찰 93] 파도는 바다의 일, 항해는 시스템의 일 (3/5) 모니터링 - 평가받던 지표에서, 나를 알아가는 관찰로</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224362499979" target="_blank" rel="noopener" data-clip="clip_source_20260730_01" data-title="[공감,작은 생각 200] 부르는 이름의 수만큼, 나는 넓어진다 (ft. 우주의 이름)" data-find="[공감,작은 생각 200] 부르는 이름의 수만큼, 나는 넓어진다 (ft. 우주의 이름) 224362499979" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224362499979" target="_blank" rel="noopener" data-clip="clip_source_20260730_01" data-title="[공감,작은 생각 200] 부르는 이름의 수만큼, 나는 넓어진다 (ft. 우주의 이름)" data-number="224362499979" data-find="[공감,작은 생각 200] 부르는 이름의 수만큼, 나는 넓어진다 (ft. 우주의 이름) 224362499979" data-ig="2026-11-06T11:28:17.198Z" data-th="2026-11-06T11:29:39.303Z" data-fb="2026-11-06T11:30:26.911Z" data-yt="2026-11-06T11:31:05.870Z" hidden>
       <img src="thumbs/clip_source_20260730_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-30 · 깊음 · No.9979</span>
         <span class="title">[공감,작은 생각 200] 부르는 이름의 수만큼, 나는 넓어진다 (ft. 우주의 이름)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224360849345" target="_blank" rel="noopener" data-clip="clip_source_20260729_01" data-title="[1퍼센트 진화론] 13. 수적천석(水滴穿石) - 바위를 뚫는 것은 리듬이다" data-find="[1퍼센트 진화론] 13. 수적천석(水滴穿石) - 바위를 뚫는 것은 리듬이다 224360849345" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224360849345" target="_blank" rel="noopener" data-clip="clip_source_20260729_01" data-title="[1퍼센트 진화론] 13. 수적천석(水滴穿石) - 바위를 뚫는 것은 리듬이다" data-number="224360849345" data-find="[1퍼센트 진화론] 13. 수적천석(水滴穿石) - 바위를 뚫는 것은 리듬이다 224360849345" data-ig="2026-11-06T07:55:50.637Z" data-th="2026-11-06T07:57:12.846Z" data-fb="2026-11-06T07:57:53.563Z" data-yt="2026-11-06T07:58:22.947Z" hidden>
       <img src="thumbs/clip_source_20260729_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-29 · 열정 (에너지·동기부여) · No.9345</span>
         <span class="title">[1퍼센트 진화론] 13. 수적천석(水滴穿石) - 바위를 뚫는 것은 리듬이다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224359579486" target="_blank" rel="noopener" data-clip="clip_source_20260728_01" data-title="[027 나를 세우는 글쓰기] 저는 댓글이 어렵습니다" data-find="[027 나를 세우는 글쓰기] 저는 댓글이 어렵습니다 224359579486" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224359579486" target="_blank" rel="noopener" data-clip="clip_source_20260728_01" data-title="[027 나를 세우는 글쓰기] 저는 댓글이 어렵습니다" data-number="224359579486" data-find="[027 나를 세우는 글쓰기] 저는 댓글이 어렵습니다 224359579486" data-ig="2026-11-06T02:47:52.942Z" data-th="2026-11-06T02:49:15.825Z" data-fb="2026-11-06T02:49:57.935Z" data-yt="2026-11-06T02:50:34.074Z" hidden>
       <img src="thumbs/clip_source_20260728_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-28 · 깊음 · No.9486</span>
         <span class="title">[027 나를 세우는 글쓰기] 저는 댓글이 어렵습니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224463195619" target="_blank" rel="noopener" data-clip="clip_source_20261104_01" data-title="[040 나를 세우는 글쓰기] 나만의 골든 타임 찾기" data-find="[040 나를 세우는 글쓰기] 나만의 골든 타임 찾기 224463195619" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224463195619" target="_blank" rel="noopener" data-clip="clip_source_20261104_01" data-title="[040 나를 세우는 글쓰기] 나만의 골든 타임 찾기" data-number="224463195619" data-find="[040 나를 세우는 글쓰기] 나만의 골든 타임 찾기 224463195619" data-yt="2026-11-06T00:26:25.020Z" data-ig="2026-11-06T00:28:19.006Z" data-th="2026-11-06T00:29:31.773Z" data-fb="2026-11-06T00:30:12.321Z" hidden>
       <img src="thumbs/clip_source_20261104_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-04 · 열정 · No.5619</span>
         <span class="title">[040 나를 세우는 글쓰기] 나만의 골든 타임 찾기</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224358494125" target="_blank" rel="noopener" data-clip="clip_source_20260727_01" data-title="[통찰 84] 뇌 사용 설명서 (XII) 뇌는 왜 나를 피해자로 볼까 (1/4) - 나는 늘 더 애쓴 사람이었다" data-find="[통찰 84] 뇌 사용 설명서 (xii) 뇌는 왜 나를 피해자로 볼까 (1/4) - 나는 늘 더 애쓴 사람이었다 224358494125" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224358494125" target="_blank" rel="noopener" data-clip="clip_source_20260727_01" data-title="[통찰 84] 뇌 사용 설명서 (XII) 뇌는 왜 나를 피해자로 볼까 (1/4) - 나는 늘 더 애쓴 사람이었다" data-number="224358494125" data-find="[통찰 84] 뇌 사용 설명서 (xii) 뇌는 왜 나를 피해자로 볼까 (1/4) - 나는 늘 더 애쓴 사람이었다 224358494125" data-ig="2026-11-05T11:26:01.253Z" data-th="2026-11-05T11:27:19.178Z" data-fb="2026-11-05T11:27:53.770Z" data-yt="2026-11-05T11:29:22.698Z" hidden>
       <img src="thumbs/clip_source_20260727_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-27 · 깊음 · No.4125</span>
         <span class="title">[통찰 84] 뇌 사용 설명서 (XII) 뇌는 왜 나를 피해자로 볼까 (1/4) - 나는 늘 더 애쓴 사람이었다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224357368478" target="_blank" rel="noopener" data-clip="clip_source_20260726_01" data-title="[통찰 83] &#39;질문하는 삶&#39;이란? (IX) - 질문은 관계를 바꾼다" data-find="[통찰 83] &#39;질문하는 삶&#39;이란? (ix) - 질문은 관계를 바꾼다 224357368478" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224357368478" target="_blank" rel="noopener" data-clip="clip_source_20260726_01" data-title="[통찰 83] &#39;질문하는 삶&#39;이란? (IX) - 질문은 관계를 바꾼다" data-number="224357368478" data-find="[통찰 83] &#39;질문하는 삶&#39;이란? (ix) - 질문은 관계를 바꾼다 224357368478" data-ig="2026-11-05T07:56:52.666Z" data-th="2026-11-05T07:58:15.040Z" data-fb="2026-11-05T07:58:49.597Z" data-yt="2026-11-05T07:59:11.868Z" hidden>
       <img src="thumbs/clip_source_20260726_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-26 · 깊음 · No.8478</span>
         <span class="title">[통찰 83] &#39;질문하는 삶&#39;이란? (IX) - 질문은 관계를 바꾼다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224356327254" target="_blank" rel="noopener" data-clip="clip_source_20260725_01" data-title="[통찰 82] 쓰다 보니, 생각이 보이기 시작했다(IV) - 생각은 어떻게 다음 생각을 부르는가" data-find="[통찰 82] 쓰다 보니, 생각이 보이기 시작했다(iv) - 생각은 어떻게 다음 생각을 부르는가 224356327254" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224356327254" target="_blank" rel="noopener" data-clip="clip_source_20260725_01" data-title="[통찰 82] 쓰다 보니, 생각이 보이기 시작했다(IV) - 생각은 어떻게 다음 생각을 부르는가" data-number="224356327254" data-find="[통찰 82] 쓰다 보니, 생각이 보이기 시작했다(iv) - 생각은 어떻게 다음 생각을 부르는가 224356327254" data-ig="2026-11-05T02:48:42.469Z" data-th="2026-11-05T02:50:05.720Z" data-fb="2026-11-05T02:50:47.136Z" data-yt="2026-11-05T02:51:54.243Z" hidden>
       <img src="thumbs/clip_source_20260725_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-25 · 깊음 · No.7254</span>
         <span class="title">[통찰 82] 쓰다 보니, 생각이 보이기 시작했다(IV) - 생각은 어떻게 다음 생각을 부르는가</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224449906210" target="_blank" rel="noopener" data-clip="clip_source_20261023_01" data-title="[공감,작은 생각 205] 한글날, &#39;ㅋㅋ&#39; 속의 세종대왕" data-find="[공감,작은 생각 205] 한글날, &#39;ㅋㅋ&#39; 속의 세종대왕 224449906210" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224449906210" target="_blank" rel="noopener" data-clip="clip_source_20261023_01" data-title="[공감,작은 생각 205] 한글날, &#39;ㅋㅋ&#39; 속의 세종대왕" data-number="224449906210" data-find="[공감,작은 생각 205] 한글날, &#39;ㅋㅋ&#39; 속의 세종대왕 224449906210" data-yt="2026-11-05T00:02:12.751Z" data-ig="2026-11-05T00:03:07.543Z" data-th="2026-11-05T00:04:31.274Z" data-fb="2026-11-05T00:05:15.831Z" hidden>
       <img src="thumbs/clip_source_20261023_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-23 · 깊음 · No.6210</span>
         <span class="title">[공감,작은 생각 205] 한글날, &#39;ㅋㅋ&#39; 속의 세종대왕</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224352556721" target="_blank" rel="noopener" data-clip="clip_source_20260721_01" data-title="[글쓰기_클래스 11] 빌려 쓴 문장, 나의 것이 되다 (下) - 거장의 문장에 내 생각을 입힌다는 것" data-find="[글쓰기_클래스 11] 빌려 쓴 문장, 나의 것이 되다 (下) - 거장의 문장에 내 생각을 입힌다는 것 224352556721" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224352556721" target="_blank" rel="noopener" data-clip="clip_source_20260721_01" data-title="[글쓰기_클래스 11] 빌려 쓴 문장, 나의 것이 되다 (下) - 거장의 문장에 내 생각을 입힌다는 것" data-number="224352556721" data-find="[글쓰기_클래스 11] 빌려 쓴 문장, 나의 것이 되다 (下) - 거장의 문장에 내 생각을 입힌다는 것 224352556721" data-ig="2026-11-04T23:59:17.801Z" data-th="2026-11-04T11:29:12.077Z" data-fb="2026-11-04T11:29:47.937Z" data-yt="2026-11-04T11:30:25.864Z" hidden>
       <img src="thumbs/clip_source_20260721_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-21 · 깊음 · No.6721</span>
         <span class="title">[글쓰기_클래스 11] 빌려 쓴 문장, 나의 것이 되다 (下) - 거장의 문장에 내 생각을 입힌다는 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224350884233" target="_blank" rel="noopener" data-clip="clip_source_20260720_01" data-title="[글쓰기_클래스 10] 빌려 쓴 문장, 나의 것이 되다 (中) - 지치지 않고 쓸 수 있었던 이유" data-find="[글쓰기_클래스 10] 빌려 쓴 문장, 나의 것이 되다 (中) - 지치지 않고 쓸 수 있었던 이유 224350884233" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224350884233" target="_blank" rel="noopener" data-clip="clip_source_20260720_01" data-title="[글쓰기_클래스 10] 빌려 쓴 문장, 나의 것이 되다 (中) - 지치지 않고 쓸 수 있었던 이유" data-number="224350884233" data-find="[글쓰기_클래스 10] 빌려 쓴 문장, 나의 것이 되다 (中) - 지치지 않고 쓸 수 있었던 이유 224350884233" data-ig="2026-11-04T07:56:01.961Z" data-th="2026-11-04T07:57:14.685Z" data-fb="2026-11-04T07:57:55.111Z" data-yt="2026-11-04T07:58:33.001Z" hidden>
       <img src="thumbs/clip_source_20260720_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-20 · 열정 · No.4233</span>
         <span class="title">[글쓰기_클래스 10] 빌려 쓴 문장, 나의 것이 되다 (中) - 지치지 않고 쓸 수 있었던 이유</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224350066826" target="_blank" rel="noopener" data-clip="clip_source_20260719_01" data-title="[글쓰기_클래스 09] 빌려 쓴 문장, 나의 것이 되다 (上) - 왜 하필, 악마의 편지였을까" data-find="[글쓰기_클래스 09] 빌려 쓴 문장, 나의 것이 되다 (上) - 왜 하필, 악마의 편지였을까 224350066826" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224350066826" target="_blank" rel="noopener" data-clip="clip_source_20260719_01" data-title="[글쓰기_클래스 09] 빌려 쓴 문장, 나의 것이 되다 (上) - 왜 하필, 악마의 편지였을까" data-number="224350066826" data-find="[글쓰기_클래스 09] 빌려 쓴 문장, 나의 것이 되다 (上) - 왜 하필, 악마의 편지였을까 224350066826" data-ig="2026-11-04T02:47:47.518Z" data-th="2026-11-04T02:49:08.864Z" data-fb="2026-11-04T02:49:42.758Z" data-yt="2026-11-04T02:50:29.027Z" hidden>
       <img src="thumbs/clip_source_20260719_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-19 · 열정 · No.6826</span>
         <span class="title">[글쓰기_클래스 09] 빌려 쓴 문장, 나의 것이 되다 (上) - 왜 하필, 악마의 편지였을까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224461218940" target="_blank" rel="noopener" data-clip="clip_source_20261102_01" data-title="[마케터-thinking 26] 발라더는 왜 햄버거 가게에서 랩을 했을까 (2/2)" data-find="[마케터-thinking 26] 발라더는 왜 햄버거 가게에서 랩을 했을까 (2/2) 224461218940" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224461218940" target="_blank" rel="noopener" data-clip="clip_source_20261102_01" data-title="[마케터-thinking 26] 발라더는 왜 햄버거 가게에서 랩을 했을까 (2/2)" data-number="224461218940" data-find="[마케터-thinking 26] 발라더는 왜 햄버거 가게에서 랩을 했을까 (2/2) 224461218940" data-ig="2026-11-03T23:32:53.402Z" data-th="2026-11-03T23:34:11.972Z" data-fb="2026-11-03T23:35:03.558Z" data-yt="2026-11-03T23:35:49.747Z" hidden>
       <img src="thumbs/clip_source_20261102_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-02 · 열정 · No.8940</span>
         <span class="title">[마케터-thinking 26] 발라더는 왜 햄버거 가게에서 랩을 했을까 (2/2)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224347323091" target="_blank" rel="noopener" data-clip="clip_source_20260716_01" data-title="[소리, 머문 위로 17] 이름을 모르고 들은 목소리" data-find="[소리, 머문 위로 17] 이름을 모르고 들은 목소리 224347323091" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224347323091" target="_blank" rel="noopener" data-clip="clip_source_20260716_01" data-title="[소리, 머문 위로 17] 이름을 모르고 들은 목소리" data-number="224347323091" data-find="[소리, 머문 위로 17] 이름을 모르고 들은 목소리 224347323091" data-ig="2026-11-03T11:26:36.187Z" data-th="2026-11-03T11:27:58.558Z" data-fb="2026-11-03T11:28:43.098Z" data-yt="2026-11-03T11:30:03.378Z" hidden>
       <img src="thumbs/clip_source_20260716_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-16 · 열정 · No.3091</span>
         <span class="title">[소리, 머문 위로 17] 이름을 모르고 들은 목소리</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224346716941" target="_blank" rel="noopener" data-clip="clip_source_20260715_01" data-title="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술" data-find="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술 224346716941" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224346716941" target="_blank" rel="noopener" data-clip="clip_source_20260715_01" data-title="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술" data-number="224346716941" data-find="[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술 224346716941" data-ig="2026-11-03T07:57:32.385Z" data-th="2026-11-03T07:58:52.468Z" data-fb="2026-11-03T07:59:37.513Z" data-yt="2026-11-03T08:00:08.013Z" hidden>
       <img src="thumbs/clip_source_20260715_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-15 · 열정 · No.6941</span>
         <span class="title">[공감,작은 생각 198] 벤저민 프랭클린의 덕목(4/13) - 결단: 완벽하게 미루는 기술</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224344930669" target="_blank" rel="noopener" data-clip="clip_source_20260714_01" data-title="[통찰 81] 68가지 작은 오지랖(16) - &#39;익어야 쓸 수 있는 글&#39;이란" data-find="[통찰 81] 68가지 작은 오지랖(16) - &#39;익어야 쓸 수 있는 글&#39;이란 224344930669" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224344930669" target="_blank" rel="noopener" data-clip="clip_source_20260714_01" data-title="[통찰 81] 68가지 작은 오지랖(16) - &#39;익어야 쓸 수 있는 글&#39;이란" data-number="224344930669" data-find="[통찰 81] 68가지 작은 오지랖(16) - &#39;익어야 쓸 수 있는 글&#39;이란 224344930669" data-ig="2026-11-03T02:46:06.700Z" data-th="2026-11-03T02:47:27.701Z" data-fb="2026-11-03T02:48:16.345Z" data-yt="2026-11-03T02:48:51.471Z" hidden>
       <img src="thumbs/clip_source_20260714_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-14 · 깊음 · No.0669</span>
         <span class="title">[통찰 81] 68가지 작은 오지랖(16) - &#39;익어야 쓸 수 있는 글&#39;이란</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224460439803" target="_blank" rel="noopener" data-clip="clip_source_20261101_01" data-title="[소리, 머문 위로 22] 발라더는 왜 햄버거 가게에서 랩을 했을까 (1/2)" data-find="[소리, 머문 위로 22] 발라더는 왜 햄버거 가게에서 랩을 했을까 (1/2) 224460439803" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224460439803" target="_blank" rel="noopener" data-clip="clip_source_20261101_01" data-title="[소리, 머문 위로 22] 발라더는 왜 햄버거 가게에서 랩을 했을까 (1/2)" data-number="224460439803" data-find="[소리, 머문 위로 22] 발라더는 왜 햄버거 가게에서 랩을 했을까 (1/2) 224460439803" data-ig="2026-11-02T23:31:06.224Z" data-th="2026-11-02T23:32:25.018Z" data-fb="2026-11-02T23:33:11.047Z" data-yt="2026-11-02T23:33:55.017Z" hidden>
       <img src="thumbs/clip_source_20261101_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-11-01 · 열정 · No.9803</span>
         <span class="title">[소리, 머문 위로 22] 발라더는 왜 햄버거 가게에서 랩을 했을까 (1/2)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224342725139" target="_blank" rel="noopener" data-clip="clip_source_20260711_01" data-title="[COSMOS_Log.007] 바다를 안다는 착각, 한 방울을 안다는 사실" data-find="[cosmos_log.007] 바다를 안다는 착각, 한 방울을 안다는 사실 224342725139" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224342725139" target="_blank" rel="noopener" data-clip="clip_source_20260711_01" data-title="[COSMOS_Log.007] 바다를 안다는 착각, 한 방울을 안다는 사실" data-number="224342725139" data-find="[cosmos_log.007] 바다를 안다는 착각, 한 방울을 안다는 사실 224342725139" data-ig="2026-11-02T07:56:59.520Z" data-th="2026-11-02T11:26:34.074Z" data-fb="2026-11-02T07:57:43.726Z" data-yt="2026-11-02T07:58:33.457Z" hidden>
       <img src="thumbs/clip_source_20260711_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-11 · 깊음 · No.5139</span>
         <span class="title">[COSMOS_Log.007] 바다를 안다는 착각, 한 방울을 안다는 사실</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224338972217" target="_blank" rel="noopener" data-clip="clip_source_20260708_01" data-title="[프리라이팅 156] &#39;러브버그&#39;에게는 있고, 나에게는 없던 것" data-find="[프리라이팅 156] &#39;러브버그&#39;에게는 있고, 나에게는 없던 것 224338972217" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224338972217" target="_blank" rel="noopener" data-clip="clip_source_20260708_01" data-title="[프리라이팅 156] &#39;러브버그&#39;에게는 있고, 나에게는 없던 것" data-number="224338972217" data-find="[프리라이팅 156] &#39;러브버그&#39;에게는 있고, 나에게는 없던 것 224338972217" data-ig="2026-11-02T02:46:57.609Z" data-th="2026-11-02T02:48:16.302Z" data-fb="2026-11-02T02:48:51.661Z" data-yt="2026-11-02T02:49:35.932Z" hidden>
       <img src="thumbs/clip_source_20260708_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-08 · 깊음 · No.2217</span>
         <span class="title">[프리라이팅 156] &#39;러브버그&#39;에게는 있고, 나에게는 없던 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224460012947" target="_blank" rel="noopener" data-clip="clip_source_20261031_01" data-title="[공감,작은 생각 207] 최불암 선생님, &#39;파하~&#39; 그 웃음을 오래 기억하겠습니다" data-find="[공감,작은 생각 207] 최불암 선생님, &#39;파하~&#39; 그 웃음을 오래 기억하겠습니다 224460012947" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224460012947" target="_blank" rel="noopener" data-clip="clip_source_20261031_01" data-title="[공감,작은 생각 207] 최불암 선생님, &#39;파하~&#39; 그 웃음을 오래 기억하겠습니다" data-number="224460012947" data-find="[공감,작은 생각 207] 최불암 선생님, &#39;파하~&#39; 그 웃음을 오래 기억하겠습니다 224460012947" data-ig="2026-11-01T23:32:47.835Z" data-th="2026-11-01T23:33:58.951Z" data-fb="2026-11-01T23:34:44.626Z" data-yt="2026-11-01T23:35:29.553Z" hidden>
       <img src="thumbs/clip_source_20261031_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-31 · 깊음 · No.2947</span>
         <span class="title">[공감,작은 생각 207] 최불암 선생님, &#39;파하~&#39; 그 웃음을 오래 기억하겠습니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224337869913" target="_blank" rel="noopener" data-clip="clip_source_20260707_01" data-title="[184] 마케터의靈感 - &#39;나&#39;라는 경쟁자(2/5) : 나는 나의 가장 오래된 적이다" data-find="[184] 마케터의靈感 - &#39;나&#39;라는 경쟁자(2/5) : 나는 나의 가장 오래된 적이다 224337869913" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224337869913" target="_blank" rel="noopener" data-clip="clip_source_20260707_01" data-title="[184] 마케터의靈感 - &#39;나&#39;라는 경쟁자(2/5) : 나는 나의 가장 오래된 적이다" data-number="224337869913" data-find="[184] 마케터의靈感 - &#39;나&#39;라는 경쟁자(2/5) : 나는 나의 가장 오래된 적이다 224337869913" data-ig="2026-11-01T11:28:13.924Z" data-th="2026-11-01T11:29:35.188Z" data-fb="2026-11-01T11:30:25.623Z" data-yt="2026-11-01T11:30:54.008Z" hidden>
       <img src="thumbs/clip_source_20260707_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-07 · 깊음 · No.9913</span>
         <span class="title">[184] 마케터의靈感 - &#39;나&#39;라는 경쟁자(2/5) : 나는 나의 가장 오래된 적이다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224334454192" target="_blank" rel="noopener" data-clip="clip_source_20260703_01" data-title="[통찰 80] 쓰다 보니, 생각이 보이기 시작했다(III) - 글을 고치면 생각이 보일까" data-find="[통찰 80] 쓰다 보니, 생각이 보이기 시작했다(iii) - 글을 고치면 생각이 보일까 224334454192" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224334454192" target="_blank" rel="noopener" data-clip="clip_source_20260703_01" data-title="[통찰 80] 쓰다 보니, 생각이 보이기 시작했다(III) - 글을 고치면 생각이 보일까" data-number="224334454192" data-find="[통찰 80] 쓰다 보니, 생각이 보이기 시작했다(iii) - 글을 고치면 생각이 보일까 224334454192" data-ig="2026-11-01T07:55:51.593Z" data-th="2026-11-01T07:57:09.421Z" data-fb="2026-11-01T07:57:42.806Z" data-yt="2026-11-01T07:58:12.348Z" hidden>
       <img src="thumbs/clip_source_20260703_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-03 · 깊음 · No.4192</span>
         <span class="title">[통찰 80] 쓰다 보니, 생각이 보이기 시작했다(III) - 글을 고치면 생각이 보일까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224332735623" target="_blank" rel="noopener" data-clip="clip_source_20260702_01" data-title="[마케터-thinking 25] 거절의 미학(3부) : 아프다는 건 아직 살아있다는 뜻이리라 (ft. 감정의 벽)" data-find="[마케터-thinking 25] 거절의 미학(3부) : 아프다는 건 아직 살아있다는 뜻이리라 (ft. 감정의 벽) 224332735623" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224332735623" target="_blank" rel="noopener" data-clip="clip_source_20260702_01" data-title="[마케터-thinking 25] 거절의 미학(3부) : 아프다는 건 아직 살아있다는 뜻이리라 (ft. 감정의 벽)" data-number="224332735623" data-find="[마케터-thinking 25] 거절의 미학(3부) : 아프다는 건 아직 살아있다는 뜻이리라 (ft. 감정의 벽) 224332735623" data-ig="2026-11-01T02:46:59.114Z" data-th="2026-11-01T02:48:23.604Z" data-fb="2026-11-01T02:49:00.235Z" data-yt="2026-11-01T02:49:42.507Z" hidden>
       <img src="thumbs/clip_source_20260702_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-07-02 · 깊음 · No.5623</span>
         <span class="title">[마케터-thinking 25] 거절의 미학(3부) : 아프다는 건 아직 살아있다는 뜻이리라 (ft. 감정의 벽)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224457576149" target="_blank" rel="noopener" data-clip="clip_source_20261030_01" data-title="[통찰 92] 68가지 작은 오지랖(18) - 내가 받은 건 거절이 아니라, 거울이었다" data-find="[통찰 92] 68가지 작은 오지랖(18) - 내가 받은 건 거절이 아니라, 거울이었다 224457576149" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224457576149" target="_blank" rel="noopener" data-clip="clip_source_20261030_01" data-title="[통찰 92] 68가지 작은 오지랖(18) - 내가 받은 건 거절이 아니라, 거울이었다" data-number="224457576149" data-find="[통찰 92] 68가지 작은 오지랖(18) - 내가 받은 건 거절이 아니라, 거울이었다 224457576149" data-ig="2026-10-31T23:32:51.412Z" data-th="2026-10-31T23:34:06.745Z" data-fb="2026-10-31T23:34:47.424Z" data-yt="2026-10-31T23:35:19.300Z" hidden>
       <img src="thumbs/clip_source_20261030_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-30 · 깊음 · No.6149</span>
         <span class="title">[통찰 92] 68가지 작은 오지랖(18) - 내가 받은 건 거절이 아니라, 거울이었다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224328525728" target="_blank" rel="noopener" data-clip="clip_source_20260627_01" data-title="[182] 마케터의靈感 - &#39;나&#39;라는 경쟁자(1/5) : 나를 무너뜨리는 것도, 살려내는 것도 결국 나였다" data-find="[182] 마케터의靈感 - &#39;나&#39;라는 경쟁자(1/5) : 나를 무너뜨리는 것도, 살려내는 것도 결국 나였다 224328525728" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224328525728" target="_blank" rel="noopener" data-clip="clip_source_20260627_01" data-title="[182] 마케터의靈感 - &#39;나&#39;라는 경쟁자(1/5) : 나를 무너뜨리는 것도, 살려내는 것도 결국 나였다" data-number="224328525728" data-find="[182] 마케터의靈感 - &#39;나&#39;라는 경쟁자(1/5) : 나를 무너뜨리는 것도, 살려내는 것도 결국 나였다 224328525728" data-ig="2026-10-31T11:25:52.497Z" data-th="2026-10-31T11:27:14.006Z" data-fb="2026-10-31T11:28:00.915Z" data-yt="2026-10-31T11:28:50.721Z" hidden>
       <img src="thumbs/clip_source_20260627_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-27 · 깊음 · No.5728</span>
         <span class="title">[182] 마케터의靈感 - &#39;나&#39;라는 경쟁자(1/5) : 나를 무너뜨리는 것도, 살려내는 것도 결국 나였다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224313701101" target="_blank" rel="noopener" data-clip="clip_source_20260613_01" data-title="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것" data-find="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것 224313701101" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224313701101" target="_blank" rel="noopener" data-clip="clip_source_20260613_01" data-title="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것" data-number="224313701101" data-find="[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것 224313701101" data-ig="2026-10-31T07:57:46.770Z" data-th="2026-10-31T07:59:15.276Z" data-fb="2026-10-31T07:59:56.709Z" data-yt="2026-10-31T08:00:39.768Z" hidden>
       <img src="thumbs/clip_source_20260613_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-13 · 깊음 · No.1101</span>
         <span class="title">[021 나를 세우는 글쓰기] 길가에 핀 꽃에게 배운 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224326724257" target="_blank" rel="noopener" data-clip="clip_source_20260626_01" data-title="[마케터-thinking 24] 거절의 미학(2부) : 말이 통하지 않는 순간들 (ft. 맥락의 벽)" data-find="[마케터-thinking 24] 거절의 미학(2부) : 말이 통하지 않는 순간들 (ft. 맥락의 벽) 224326724257" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224326724257" target="_blank" rel="noopener" data-clip="clip_source_20260626_01" data-title="[마케터-thinking 24] 거절의 미학(2부) : 말이 통하지 않는 순간들 (ft. 맥락의 벽)" data-number="224326724257" data-find="[마케터-thinking 24] 거절의 미학(2부) : 말이 통하지 않는 순간들 (ft. 맥락의 벽) 224326724257" data-ig="2026-10-31T02:48:15.717Z" data-th="2026-10-31T02:49:47.198Z" data-fb="2026-10-31T02:50:28.292Z" data-yt="2026-10-31T02:51:10.662Z" hidden>
       <img src="thumbs/clip_source_20260626_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-26 · 깊음 · No.4257</span>
         <span class="title">[마케터-thinking 24] 거절의 미학(2부) : 말이 통하지 않는 순간들 (ft. 맥락의 벽)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224456398172" target="_blank" rel="noopener" data-clip="clip_source_20261029_01" data-title="[통찰 91] 파도는 바다의 일, 항해는 시스템의 일 (2/5) 로깅 - 증거로 남기던 기록에서, 성장의 재료로 남기는 기록으로" data-find="[통찰 91] 파도는 바다의 일, 항해는 시스템의 일 (2/5) 로깅 - 증거로 남기던 기록에서, 성장의 재료로 남기는 기록으로 224456398172" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224456398172" target="_blank" rel="noopener" data-clip="clip_source_20261029_01" data-title="[통찰 91] 파도는 바다의 일, 항해는 시스템의 일 (2/5) 로깅 - 증거로 남기던 기록에서, 성장의 재료로 남기는 기록으로" data-number="224456398172" data-find="[통찰 91] 파도는 바다의 일, 항해는 시스템의 일 (2/5) 로깅 - 증거로 남기던 기록에서, 성장의 재료로 남기는 기록으로 224456398172" data-yt="2026-10-30T23:47:56.691Z" data-ig="2026-10-30T23:51:06.730Z" data-th="2026-10-30T23:52:26.033Z" data-fb="2026-10-30T23:53:10.554Z" hidden>
       <img src="thumbs/clip_source_20261029_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-29 · 열정 · No.8172</span>
         <span class="title">[통찰 91] 파도는 바다의 일, 항해는 시스템의 일 (2/5) 로깅 - 증거로 남기던 기록에서, 성장의 재료로 남기는 기록으로</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224325430341" target="_blank" rel="noopener" data-clip="clip_source_20260625_01" data-title="[COSMOS_Log.006] &#39;될 성싶은 떡잎&#39;은 혼자가 아니다" data-find="[cosmos_log.006] &#39;될 성싶은 떡잎&#39;은 혼자가 아니다 224325430341" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224325430341" target="_blank" rel="noopener" data-clip="clip_source_20260625_01" data-title="[COSMOS_Log.006] &#39;될 성싶은 떡잎&#39;은 혼자가 아니다" data-number="224325430341" data-find="[cosmos_log.006] &#39;될 성싶은 떡잎&#39;은 혼자가 아니다 224325430341" data-ig="2026-10-30T11:28:02.283Z" data-th="2026-10-30T11:29:16.980Z" data-fb="2026-10-30T11:30:03.489Z" data-yt="2026-10-30T11:31:01.131Z" hidden>
       <img src="thumbs/clip_source_20260625_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-25 · 깊음 · No.0341</span>
         <span class="title">[COSMOS_Log.006] &#39;될 성싶은 떡잎&#39;은 혼자가 아니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224325082296" target="_blank" rel="noopener" data-clip="clip_source_20260624_01" data-title="[1퍼센트 진화론] 07. 이웃은 경쟁자가 아니라 공진화 파트너입니다 (ft. 공명하는 이웃 == 에너지)" data-find="[1퍼센트 진화론] 07. 이웃은 경쟁자가 아니라 공진화 파트너입니다 (ft. 공명하는 이웃 == 에너지) 224325082296" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224325082296" target="_blank" rel="noopener" data-clip="clip_source_20260624_01" data-title="[1퍼센트 진화론] 07. 이웃은 경쟁자가 아니라 공진화 파트너입니다 (ft. 공명하는 이웃 == 에너지)" data-number="224325082296" data-find="[1퍼센트 진화론] 07. 이웃은 경쟁자가 아니라 공진화 파트너입니다 (ft. 공명하는 이웃 == 에너지) 224325082296" data-ig="2026-10-30T07:58:12.388Z" data-th="2026-10-30T07:59:34.369Z" data-fb="2026-10-30T08:00:27.246Z" data-yt="2026-10-30T08:01:08.005Z" hidden>
       <img src="thumbs/clip_source_20260624_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-24 · 깊음 · No.2296</span>
         <span class="title">[1퍼센트 진화론] 07. 이웃은 경쟁자가 아니라 공진화 파트너입니다 (ft. 공명하는 이웃 == 에너지)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224323887636" target="_blank" rel="noopener" data-clip="clip_source_20260623_01" data-title="[181] 마케터의靈感 - 기보와 복기 (III) : 기보가 쌓이면 달라지는 것" data-find="[181] 마케터의靈感 - 기보와 복기 (iii) : 기보가 쌓이면 달라지는 것 224323887636" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224323887636" target="_blank" rel="noopener" data-clip="clip_source_20260623_01" data-title="[181] 마케터의靈感 - 기보와 복기 (III) : 기보가 쌓이면 달라지는 것" data-number="224323887636" data-find="[181] 마케터의靈感 - 기보와 복기 (iii) : 기보가 쌓이면 달라지는 것 224323887636" data-ig="2026-10-30T02:45:52.846Z" data-th="2026-10-30T02:47:20.188Z" data-fb="2026-10-30T02:48:23.500Z" data-yt="2026-10-30T02:49:11.883Z" hidden>
       <img src="thumbs/clip_source_20260623_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-23 · 깊음 · No.7636</span>
         <span class="title">[181] 마케터의靈感 - 기보와 복기 (III) : 기보가 쌓이면 달라지는 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224456315458" target="_blank" rel="noopener" data-clip="clip_source_20261028_01" data-title="[통찰 90] 파도는 바다의 일, 항해는 시스템의 일 (1/5) 스케줄링 - 시간을 정해 주던 삶에서, 시간을 정하는 삶으로" data-find="[통찰 90] 파도는 바다의 일, 항해는 시스템의 일 (1/5) 스케줄링 - 시간을 정해 주던 삶에서, 시간을 정하는 삶으로 224456315458" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224456315458" target="_blank" rel="noopener" data-clip="clip_source_20261028_01" data-title="[통찰 90] 파도는 바다의 일, 항해는 시스템의 일 (1/5) 스케줄링 - 시간을 정해 주던 삶에서, 시간을 정하는 삶으로" data-number="224456315458" data-find="[통찰 90] 파도는 바다의 일, 항해는 시스템의 일 (1/5) 스케줄링 - 시간을 정해 주던 삶에서, 시간을 정하는 삶으로 224456315458" data-ig="2026-10-29T23:32:39.920Z" data-th="2026-10-29T23:34:04.945Z" data-fb="2026-10-29T23:34:39.996Z" data-yt="2026-10-29T23:35:20.258Z" hidden>
       <img src="thumbs/clip_source_20261028_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-28 · 깊음 · No.5458</span>
         <span class="title">[통찰 90] 파도는 바다의 일, 항해는 시스템의 일 (1/5) 스케줄링 - 시간을 정해 주던 삶에서, 시간을 정하는 삶으로</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224322632704" target="_blank" rel="noopener" data-clip="clip_source_20260622_01" data-title="[39] 1일 1포스팅 헬퍼 - 1년 전 글이 오늘 나를 도왔다 (ft. 글쓰기도 업사이클링이 될까)" data-find="[39] 1일 1포스팅 헬퍼 - 1년 전 글이 오늘 나를 도왔다 (ft. 글쓰기도 업사이클링이 될까) 224322632704" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224322632704" target="_blank" rel="noopener" data-clip="clip_source_20260622_01" data-title="[39] 1일 1포스팅 헬퍼 - 1년 전 글이 오늘 나를 도왔다 (ft. 글쓰기도 업사이클링이 될까)" data-number="224322632704" data-find="[39] 1일 1포스팅 헬퍼 - 1년 전 글이 오늘 나를 도왔다 (ft. 글쓰기도 업사이클링이 될까) 224322632704" data-ig="2026-10-29T11:27:54.010Z" data-th="2026-10-29T11:29:24.391Z" data-fb="2026-10-29T11:30:04.291Z" data-yt="2026-10-29T11:30:39.928Z" hidden>
       <img src="thumbs/clip_source_20260622_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-22 · 열정 · No.2704</span>
         <span class="title">[39] 1일 1포스팅 헬퍼 - 1년 전 글이 오늘 나를 도왔다 (ft. 글쓰기도 업사이클링이 될까)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224321781600" target="_blank" rel="noopener" data-clip="clip_source_20260621_01" data-title="[1퍼센트 진화론] 06. 카테고리는 나의 사고 구조를 반영한다 (ft. 같은 주제 반복? 지극히 정상^^)" data-find="[1퍼센트 진화론] 06. 카테고리는 나의 사고 구조를 반영한다 (ft. 같은 주제 반복? 지극히 정상^^) 224321781600" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224321781600" target="_blank" rel="noopener" data-clip="clip_source_20260621_01" data-title="[1퍼센트 진화론] 06. 카테고리는 나의 사고 구조를 반영한다 (ft. 같은 주제 반복? 지극히 정상^^)" data-number="224321781600" data-find="[1퍼센트 진화론] 06. 카테고리는 나의 사고 구조를 반영한다 (ft. 같은 주제 반복? 지극히 정상^^) 224321781600" data-ig="2026-10-29T07:58:04.086Z" data-th="2026-10-29T07:59:27.506Z" data-fb="2026-10-29T08:00:06.617Z" data-yt="2026-10-29T08:00:45.260Z" hidden>
       <img src="thumbs/clip_source_20260621_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-21 · 깊음 · No.1600</span>
         <span class="title">[1퍼센트 진화론] 06. 카테고리는 나의 사고 구조를 반영한다 (ft. 같은 주제 반복? 지극히 정상^^)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224289495097" target="_blank" rel="noopener" data-clip="clip_source_20260519_01" data-title="[COSMOS_Log.002] 찌꺼기가 생명이 되기까지" data-find="[cosmos_log.002] 찌꺼기가 생명이 되기까지 224289495097" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224289495097" target="_blank" rel="noopener" data-clip="clip_source_20260519_01" data-title="[COSMOS_Log.002] 찌꺼기가 생명이 되기까지" data-number="224289495097" data-find="[cosmos_log.002] 찌꺼기가 생명이 되기까지 224289495097" data-ig="2026-10-29T02:48:37.443Z" data-th="2026-10-29T02:49:14.752Z" data-fb="2026-10-29T02:49:54.891Z" data-yt="2026-10-29T02:50:26.738Z" hidden>
       <img src="thumbs/clip_source_20260519_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-19 · 깊음 · No.5097</span>
         <span class="title">[COSMOS_Log.002] 찌꺼기가 생명이 되기까지</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224454732779" target="_blank" rel="noopener" data-clip="clip_source_20261027_01" data-title="[039 나를 세우는 글쓰기] ‘1일 1포스팅&#39;의 본질에 대하여" data-find="[039 나를 세우는 글쓰기] ‘1일 1포스팅&#39;의 본질에 대하여 224454732779" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224454732779" target="_blank" rel="noopener" data-clip="clip_source_20261027_01" data-title="[039 나를 세우는 글쓰기] ‘1일 1포스팅&#39;의 본질에 대하여" data-number="224454732779" data-find="[039 나를 세우는 글쓰기] ‘1일 1포스팅&#39;의 본질에 대하여 224454732779" data-yt="2026-10-29T00:38:51.041Z" data-ig="2026-10-29T00:38:49.790Z" data-th="2026-10-29T00:39:29.986Z" data-fb="2026-10-29T00:40:10.158Z" hidden>
       <img src="thumbs/clip_source_20261027_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-27 · 깊음 · No.2779</span>
         <span class="title">[039 나를 세우는 글쓰기] ‘1일 1포스팅&#39;의 본질에 대하여</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224320528507" target="_blank" rel="noopener" data-clip="clip_source_20260620_01" data-title="[022 나를 세우는 글쓰기] 좋아한다고 말할 수 있다는 것" data-find="[022 나를 세우는 글쓰기] 좋아한다고 말할 수 있다는 것 224320528507" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224320528507" target="_blank" rel="noopener" data-clip="clip_source_20260620_01" data-title="[022 나를 세우는 글쓰기] 좋아한다고 말할 수 있다는 것" data-number="224320528507" data-find="[022 나를 세우는 글쓰기] 좋아한다고 말할 수 있다는 것 224320528507" data-ig="2026-10-28T11:28:04.804Z" data-th="2026-10-28T11:28:50.480Z" data-fb="2026-10-28T11:29:31.876Z" data-yt="2026-10-28T11:30:18.882Z" hidden>
       <img src="thumbs/clip_source_20260620_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-20 · 밝음 · No.8507</span>
         <span class="title">[022 나를 세우는 글쓰기] 좋아한다고 말할 수 있다는 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224283085537" target="_blank" rel="noopener" data-clip="clip_source_20260513_01" data-title="[사진,짧은 단상 99] 나비에게 죄를 진 아침" data-find="[사진,짧은 단상 99] 나비에게 죄를 진 아침 224283085537" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224283085537" target="_blank" rel="noopener" data-clip="clip_source_20260513_01" data-title="[사진,짧은 단상 99] 나비에게 죄를 진 아침" data-number="224283085537" data-find="[사진,짧은 단상 99] 나비에게 죄를 진 아침 224283085537" data-ig="2026-10-28T07:56:10.994Z" data-th="2026-10-28T07:56:46.750Z" data-fb="2026-10-28T07:57:29.076Z" data-yt="2026-10-28T07:58:11.581Z" hidden>
       <img src="thumbs/clip_source_20260513_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-13 · 깊음 · No.5537</span>
         <span class="title">[사진,짧은 단상 99] 나비에게 죄를 진 아침</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224280556746" target="_blank" rel="noopener" data-clip="clip_source_20260511_01" data-title="[174] 마케터의靈感 - 글쓰기가 나에게 남긴 것 (ft. 중독, 집착, 안도감)" data-find="[174] 마케터의靈感 - 글쓰기가 나에게 남긴 것 (ft. 중독, 집착, 안도감) 224280556746" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224280556746" target="_blank" rel="noopener" data-clip="clip_source_20260511_01" data-title="[174] 마케터의靈感 - 글쓰기가 나에게 남긴 것 (ft. 중독, 집착, 안도감)" data-number="224280556746" data-find="[174] 마케터의靈感 - 글쓰기가 나에게 남긴 것 (ft. 중독, 집착, 안도감) 224280556746" data-ig="2026-10-28T02:47:56.891Z" data-th="2026-10-28T02:48:34.447Z" data-fb="2026-10-28T02:49:17.194Z" data-yt="2026-10-28T02:50:28.010Z" hidden>
       <img src="thumbs/clip_source_20260511_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-11 · 깊음 · No.6746</span>
         <span class="title">[174] 마케터의靈感 - 글쓰기가 나에게 남긴 것 (ft. 중독, 집착, 안도감)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224453202979" target="_blank" rel="noopener" data-clip="clip_source_20261026_01" data-title="[1퍼센트 진화론] 20. 기억은 천여 편을 감당하지 못한다 (ft. &#39;사유의 정원&#39;이란)" data-find="[1퍼센트 진화론] 20. 기억은 천여 편을 감당하지 못한다 (ft. &#39;사유의 정원&#39;이란) 224453202979" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224453202979" target="_blank" rel="noopener" data-clip="clip_source_20261026_01" data-title="[1퍼센트 진화론] 20. 기억은 천여 편을 감당하지 못한다 (ft. &#39;사유의 정원&#39;이란)" data-number="224453202979" data-find="[1퍼센트 진화론] 20. 기억은 천여 편을 감당하지 못한다 (ft. &#39;사유의 정원&#39;이란) 224453202979" data-ig="2026-10-27T23:31:50.319Z" data-th="2026-10-27T23:32:27.128Z" data-fb="2026-10-27T23:33:11.506Z" data-yt="2026-10-27T23:33:48.087Z" hidden>
       <img src="thumbs/clip_source_20261026_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-26 · 깊음 · No.2979</span>
         <span class="title">[1퍼센트 진화론] 20. 기억은 천여 편을 감당하지 못한다 (ft. &#39;사유의 정원&#39;이란)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224279791965" target="_blank" rel="noopener" data-clip="clip_source_20260510_01" data-title="[017 나를 세우는 글쓰기] &#39;관찰자의 눈&#39; 이란" data-find="[017 나를 세우는 글쓰기] &#39;관찰자의 눈&#39; 이란 224279791965" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224279791965" target="_blank" rel="noopener" data-clip="clip_source_20260510_01" data-title="[017 나를 세우는 글쓰기] &#39;관찰자의 눈&#39; 이란" data-number="224279791965" data-find="[017 나를 세우는 글쓰기] &#39;관찰자의 눈&#39; 이란 224279791965" data-ig="2026-10-27T11:27:45.165Z" data-th="2026-10-27T11:28:17.612Z" data-fb="2026-10-27T11:29:04.049Z" data-yt="2026-10-27T11:29:53.321Z" hidden>
       <img src="thumbs/clip_source_20260510_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-10 · 열정 · No.1965</span>
         <span class="title">[017 나를 세우는 글쓰기] &#39;관찰자의 눈&#39; 이란</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224319596176" target="_blank" rel="noopener" data-clip="clip_source_20260619_01" data-title="[1퍼센트 진화론] 05. 블로그는 생각을 기록하는 실험실이다 (ft. 신줏단지 사절)" data-find="[1퍼센트 진화론] 05. 블로그는 생각을 기록하는 실험실이다 (ft. 신줏단지 사절) 224319596176" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224319596176" target="_blank" rel="noopener" data-clip="clip_source_20260619_01" data-title="[1퍼센트 진화론] 05. 블로그는 생각을 기록하는 실험실이다 (ft. 신줏단지 사절)" data-number="224319596176" data-find="[1퍼센트 진화론] 05. 블로그는 생각을 기록하는 실험실이다 (ft. 신줏단지 사절) 224319596176" data-ig="2026-10-27T07:57:43.535Z" data-th="2026-10-27T07:58:20.150Z" data-fb="2026-10-27T07:59:00.705Z" data-yt="2026-10-27T07:59:43.822Z" hidden>
       <img src="thumbs/clip_source_20260619_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-19 · 열정 · No.6176</span>
         <span class="title">[1퍼센트 진화론] 05. 블로그는 생각을 기록하는 실험실이다 (ft. 신줏단지 사절)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224282233324" target="_blank" rel="noopener" data-clip="clip_source_20260512_01" data-title="[통찰 78] 쓰다 보니, 생각이 보이기 시작했다(II) - 생각은 원래부터 있었을까" data-find="[통찰 78] 쓰다 보니, 생각이 보이기 시작했다(ii) - 생각은 원래부터 있었을까 224282233324" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224282233324" target="_blank" rel="noopener" data-clip="clip_source_20260512_01" data-title="[통찰 78] 쓰다 보니, 생각이 보이기 시작했다(II) - 생각은 원래부터 있었을까" data-number="224282233324" data-find="[통찰 78] 쓰다 보니, 생각이 보이기 시작했다(ii) - 생각은 원래부터 있었을까 224282233324" data-ig="2026-10-27T02:48:02.619Z" data-th="2026-10-27T02:48:44.079Z" data-fb="2026-10-27T02:49:24.218Z" data-yt="2026-10-27T02:50:02.190Z" hidden>
       <img src="thumbs/clip_source_20260512_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-12 · 깊음 · No.3324</span>
         <span class="title">[통찰 78] 쓰다 보니, 생각이 보이기 시작했다(II) - 생각은 원래부터 있었을까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224452544884" target="_blank" rel="noopener" data-clip="clip_source_20261025_01" data-title="[사진,짧은 단상 103] 전선 사이로 걸린 낮달" data-find="[사진,짧은 단상 103] 전선 사이로 걸린 낮달 224452544884" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224452544884" target="_blank" rel="noopener" data-clip="clip_source_20261025_01" data-title="[사진,짧은 단상 103] 전선 사이로 걸린 낮달" data-number="224452544884" data-find="[사진,짧은 단상 103] 전선 사이로 걸린 낮달 224452544884" data-ig="2026-10-26T23:32:56.852Z" data-th="2026-10-26T23:33:27.599Z" data-fb="2026-10-26T23:34:09.299Z" data-yt="2026-10-26T23:34:40.805Z" hidden>
       <img src="thumbs/clip_source_20261025_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-25 · 깊음 · No.4884</span>
         <span class="title">[사진,짧은 단상 103] 전선 사이로 걸린 낮달</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224319334847" target="_blank" rel="noopener" data-clip="clip_source_20260618_01" data-title="[COSMOS_Log.005] 알 수 없는 것 앞에서의 경외감" data-find="[cosmos_log.005] 알 수 없는 것 앞에서의 경외감 224319334847" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224319334847" target="_blank" rel="noopener" data-clip="clip_source_20260618_01" data-title="[COSMOS_Log.005] 알 수 없는 것 앞에서의 경외감" data-number="224319334847" data-find="[cosmos_log.005] 알 수 없는 것 앞에서의 경외감 224319334847" data-ig="2026-10-26T11:25:48.660Z" data-th="2026-10-26T11:26:21.373Z" data-fb="2026-10-26T11:26:58.944Z" data-yt="2026-10-26T11:27:42.816Z" hidden>
       <img src="thumbs/clip_source_20260618_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-18 · 깊음 · No.4847</span>
         <span class="title">[COSMOS_Log.005] 알 수 없는 것 앞에서의 경외감</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224285084773" target="_blank" rel="noopener" data-clip="clip_source_20260515_01" data-title="[AI, 사유의 거울 08] 30일간의 산책(3화) - 우리는 왜 이해하지 못한 존재를 믿기 시작했을까" data-find="[ai, 사유의 거울 08] 30일간의 산책(3화) - 우리는 왜 이해하지 못한 존재를 믿기 시작했을까 224285084773" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224285084773" target="_blank" rel="noopener" data-clip="clip_source_20260515_01" data-title="[AI, 사유의 거울 08] 30일간의 산책(3화) - 우리는 왜 이해하지 못한 존재를 믿기 시작했을까" data-number="224285084773" data-find="[ai, 사유의 거울 08] 30일간의 산책(3화) - 우리는 왜 이해하지 못한 존재를 믿기 시작했을까 224285084773" data-ig="2026-10-26T07:57:35.302Z" data-th="2026-10-26T07:58:09.535Z" data-fb="2026-10-26T07:59:05.999Z" data-yt="2026-10-26T07:59:48.070Z" hidden>
       <img src="thumbs/clip_source_20260515_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-15 · 깊음 · No.4773</span>
         <span class="title">[AI, 사유의 거울 08] 30일간의 산책(3화) - 우리는 왜 이해하지 못한 존재를 믿기 시작했을까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224283837485" target="_blank" rel="noopener" data-clip="clip_source_20260514_01" data-title="[37] 1일 1포스팅 헬퍼 - 블로그의 진짜 자산 - 글이 모아온 사람들" data-find="[37] 1일 1포스팅 헬퍼 - 블로그의 진짜 자산 - 글이 모아온 사람들 224283837485" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224283837485" target="_blank" rel="noopener" data-clip="clip_source_20260514_01" data-title="[37] 1일 1포스팅 헬퍼 - 블로그의 진짜 자산 - 글이 모아온 사람들" data-number="224283837485" data-find="[37] 1일 1포스팅 헬퍼 - 블로그의 진짜 자산 - 글이 모아온 사람들 224283837485" data-ig="2026-10-26T02:48:16.803Z" data-th="2026-10-26T02:48:48.475Z" data-fb="2026-10-26T02:49:36.571Z" data-yt="2026-10-26T02:50:21.243Z" hidden>
       <img src="thumbs/clip_source_20260514_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-14 · 깊음 · No.7485</span>
         <span class="title">[37] 1일 1포스팅 헬퍼 - 블로그의 진짜 자산 - 글이 모아온 사람들</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224451033912" target="_blank" rel="noopener" data-clip="clip_source_20261024_01" data-title="[공감,작은 생각 206] 한글날, 블로그 위의 세종대왕" data-find="[공감,작은 생각 206] 한글날, 블로그 위의 세종대왕 224451033912" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224451033912" target="_blank" rel="noopener" data-clip="clip_source_20261024_01" data-title="[공감,작은 생각 206] 한글날, 블로그 위의 세종대왕" data-number="224451033912" data-find="[공감,작은 생각 206] 한글날, 블로그 위의 세종대왕 224451033912" data-ig="2026-10-25T23:31:59.748Z" data-th="2026-10-25T23:32:40.345Z" data-fb="2026-10-25T23:33:24.618Z" data-yt="2026-10-25T23:34:00.146Z" hidden>
       <img src="thumbs/clip_source_20261024_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-24 · 깊음 · No.3912</span>
         <span class="title">[공감,작은 생각 206] 한글날, 블로그 위의 세종대왕</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224317772090" target="_blank" rel="noopener" data-clip="clip_source_20260617_01" data-title="[180] 마케터의靈感 - 기보와 복기 (II) : 글쓰기는 단어를 재정의하는 것은 아닐까" data-find="[180] 마케터의靈感 - 기보와 복기 (ii) : 글쓰기는 단어를 재정의하는 것은 아닐까 224317772090" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224317772090" target="_blank" rel="noopener" data-clip="clip_source_20260617_01" data-title="[180] 마케터의靈感 - 기보와 복기 (II) : 글쓰기는 단어를 재정의하는 것은 아닐까" data-number="224317772090" data-find="[180] 마케터의靈感 - 기보와 복기 (ii) : 글쓰기는 단어를 재정의하는 것은 아닐까 224317772090" data-ig="2026-10-25T11:28:07.212Z" data-th="2026-10-25T11:28:46.064Z" data-fb="2026-10-25T11:29:38.810Z" data-yt="2026-10-25T11:30:22.834Z" hidden>
       <img src="thumbs/clip_source_20260617_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-17 · 깊음 · No.2090</span>
         <span class="title">[180] 마케터의靈感 - 기보와 복기 (II) : 글쓰기는 단어를 재정의하는 것은 아닐까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224316033277" target="_blank" rel="noopener" data-clip="clip_source_20260616_01" data-title="[1퍼센트 진화론] 04. 성장이 멈추면 행복도 멈춥니다 (ft. 행복은 목표가 아니라 살아가는 방식)" data-find="[1퍼센트 진화론] 04. 성장이 멈추면 행복도 멈춥니다 (ft. 행복은 목표가 아니라 살아가는 방식) 224316033277" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224316033277" target="_blank" rel="noopener" data-clip="clip_source_20260616_01" data-title="[1퍼센트 진화론] 04. 성장이 멈추면 행복도 멈춥니다 (ft. 행복은 목표가 아니라 살아가는 방식)" data-number="224316033277" data-find="[1퍼센트 진화론] 04. 성장이 멈추면 행복도 멈춥니다 (ft. 행복은 목표가 아니라 살아가는 방식) 224316033277" data-ig="2026-10-25T07:58:01.265Z" data-th="2026-10-25T07:58:39.483Z" data-fb="2026-10-25T07:59:28.850Z" data-yt="2026-10-25T07:59:58.262Z" hidden>
       <img src="thumbs/clip_source_20260616_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-16 · 열정 · No.3277</span>
         <span class="title">[1퍼센트 진화론] 04. 성장이 멈추면 행복도 멈춥니다 (ft. 행복은 목표가 아니라 살아가는 방식)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224315500361" target="_blank" rel="noopener" data-clip="clip_source_20260615_01" data-title="[179] 마케터의靈感 - 기보와 복기 (I) : 1%퇴보를 감지하는 법" data-find="[179] 마케터의靈感 - 기보와 복기 (i) : 1%퇴보를 감지하는 법 224315500361" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224315500361" target="_blank" rel="noopener" data-clip="clip_source_20260615_01" data-title="[179] 마케터의靈感 - 기보와 복기 (I) : 1%퇴보를 감지하는 법" data-number="224315500361" data-find="[179] 마케터의靈感 - 기보와 복기 (i) : 1%퇴보를 감지하는 법 224315500361" data-ig="2026-10-25T02:46:09.331Z" data-th="2026-10-25T02:46:46.324Z" data-fb="2026-10-25T02:47:32.097Z" data-yt="2026-10-25T02:48:02.603Z" hidden>
       <img src="thumbs/clip_source_20260615_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-15 · 깊음 · No.0361</span>
         <span class="title">[179] 마케터의靈感 - 기보와 복기 (I) : 1%퇴보를 감지하는 법</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224443204938" target="_blank" rel="noopener" data-clip="clip_source_20261016_01" data-title="마케팅이다[23] - 누구를 도울 것인가 (ft. 프롤로그)" data-find="마케팅이다[23] - 누구를 도울 것인가 (ft. 프롤로그) 224443204938" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224443204938" target="_blank" rel="noopener" data-clip="clip_source_20261016_01" data-title="마케팅이다[23] - 누구를 도울 것인가 (ft. 프롤로그)" data-number="224443204938" data-find="마케팅이다[23] - 누구를 도울 것인가 (ft. 프롤로그) 224443204938" data-ig="2026-10-24T23:33:02.213Z" data-th="2026-10-24T23:33:33.351Z" data-fb="2026-10-24T23:34:13.120Z" data-yt="2026-10-24T23:34:55.111Z" hidden>
       <img src="thumbs/clip_source_20261016_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-16 · 깊음 · No.4938</span>
         <span class="title">마케팅이다[23] - 누구를 도울 것인가 (ft. 프롤로그)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224314646591" target="_blank" rel="noopener" data-clip="clip_source_20260614_01" data-title="[1퍼센트 진화론] 03. 퇴보하지 않는 것이 먼저다 (ft. 정체와 퇴보, 우리가 혼동하는 것들)" data-find="[1퍼센트 진화론] 03. 퇴보하지 않는 것이 먼저다 (ft. 정체와 퇴보, 우리가 혼동하는 것들) 224314646591" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224314646591" target="_blank" rel="noopener" data-clip="clip_source_20260614_01" data-title="[1퍼센트 진화론] 03. 퇴보하지 않는 것이 먼저다 (ft. 정체와 퇴보, 우리가 혼동하는 것들)" data-number="224314646591" data-find="[1퍼센트 진화론] 03. 퇴보하지 않는 것이 먼저다 (ft. 정체와 퇴보, 우리가 혼동하는 것들) 224314646591" data-yt="2026-10-24T13:01:30.047Z" data-ig="2026-10-24T13:03:39.474Z" data-th="2026-10-24T13:04:17.915Z" data-fb="2026-10-24T13:05:12.527Z" hidden>
       <img src="thumbs/clip_source_20260614_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-14 · 깊음 · No.6591</span>
         <span class="title">[1퍼센트 진화론] 03. 퇴보하지 않는 것이 먼저다 (ft. 정체와 퇴보, 우리가 혼동하는 것들)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224288263781" target="_blank" rel="noopener" data-clip="clip_source_20260518_01" data-title="[마케터-thinking 21] 블로그 마케팅 기본(4/7, 바이럴 편) - 공유를 부르는 감정" data-find="[마케터-thinking 21] 블로그 마케팅 기본(4/7, 바이럴 편) - 공유를 부르는 감정 224288263781" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224288263781" target="_blank" rel="noopener" data-clip="clip_source_20260518_01" data-title="[마케터-thinking 21] 블로그 마케팅 기본(4/7, 바이럴 편) - 공유를 부르는 감정" data-number="224288263781" data-find="[마케터-thinking 21] 블로그 마케팅 기본(4/7, 바이럴 편) - 공유를 부르는 감정 224288263781" data-ig="2026-10-24T11:28:43.746Z" data-th="2026-10-24T11:29:20.314Z" data-fb="2026-10-24T11:29:55.251Z" data-yt="2026-10-24T11:30:26.884Z" hidden>
       <img src="thumbs/clip_source_20260518_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-18 · 깊음 · No.3781</span>
         <span class="title">[마케터-thinking 21] 블로그 마케팅 기본(4/7, 바이럴 편) - 공유를 부르는 감정</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224287239619" target="_blank" rel="noopener" data-clip="clip_source_20260517_01" data-title="[第12書信] 환자를 쓰게 하되, 왜 시작했는지를 잊게 하라" data-find="[第12書信] 환자를 쓰게 하되, 왜 시작했는지를 잊게 하라 224287239619" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224287239619" target="_blank" rel="noopener" data-clip="clip_source_20260517_01" data-title="[第12書信] 환자를 쓰게 하되, 왜 시작했는지를 잊게 하라" data-number="224287239619" data-find="[第12書信] 환자를 쓰게 하되, 왜 시작했는지를 잊게 하라 224287239619" data-ig="2026-10-24T07:58:24.164Z" data-th="2026-10-24T07:59:01.383Z" data-fb="2026-10-24T07:59:37.410Z" data-yt="2026-10-24T08:00:03.340Z" hidden>
       <img src="thumbs/clip_source_20260517_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-17 · 깊음 · No.9619</span>
         <span class="title">[第12書信] 환자를 쓰게 하되, 왜 시작했는지를 잊게 하라</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224286750167" target="_blank" rel="noopener" data-clip="clip_source_20260516_01" data-title="[018 나를 세우는 글쓰기] 실패가 가장 사람 냄새나는 글감인 이유" data-find="[018 나를 세우는 글쓰기] 실패가 가장 사람 냄새나는 글감인 이유 224286750167" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224286750167" target="_blank" rel="noopener" data-clip="clip_source_20260516_01" data-title="[018 나를 세우는 글쓰기] 실패가 가장 사람 냄새나는 글감인 이유" data-number="224286750167" data-find="[018 나를 세우는 글쓰기] 실패가 가장 사람 냄새나는 글감인 이유 224286750167" data-ig="2026-10-24T02:47:44.246Z" data-th="2026-10-24T02:48:18.267Z" data-fb="2026-10-24T02:48:54.334Z" data-yt="2026-10-24T02:49:36.081Z" hidden>
       <img src="thumbs/clip_source_20260516_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-16 · 열정 · No.0167</span>
         <span class="title">[018 나를 세우는 글쓰기] 실패가 가장 사람 냄새나는 글감인 이유</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224443522541" target="_blank" rel="noopener" data-clip="clip_source_20261017_01" data-title="[1퍼센트 진화론] 19. 글쓰기가 도구를 만들었다 (ft. BPT 탄생기)" data-find="[1퍼센트 진화론] 19. 글쓰기가 도구를 만들었다 (ft. bpt 탄생기) 224443522541" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224443522541" target="_blank" rel="noopener" data-clip="clip_source_20261017_01" data-title="[1퍼센트 진화론] 19. 글쓰기가 도구를 만들었다 (ft. BPT 탄생기)" data-number="224443522541" data-find="[1퍼센트 진화론] 19. 글쓰기가 도구를 만들었다 (ft. bpt 탄생기) 224443522541" data-yt="2026-10-24T00:26:30.879Z" data-ig="2026-10-24T00:26:38.316Z" data-th="2026-10-24T00:27:13.280Z" data-fb="2026-10-24T00:27:58.676Z" hidden>
       <img src="thumbs/clip_source_20261017_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-17 · 깊음 · No.2541</span>
         <span class="title">[1퍼센트 진화론] 19. 글쓰기가 도구를 만들었다 (ft. BPT 탄생기)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224307425457" target="_blank" rel="noopener" data-clip="clip_source_20260606_01" data-title="[AI, 사유의 거울 09] 30일간의 산책(4화) - AI가 낯선 게 아니라, 그 앞의 내가 낯설었다" data-find="[ai, 사유의 거울 09] 30일간의 산책(4화) - ai가 낯선 게 아니라, 그 앞의 내가 낯설었다 224307425457" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224307425457" target="_blank" rel="noopener" data-clip="clip_source_20260606_01" data-title="[AI, 사유의 거울 09] 30일간의 산책(4화) - AI가 낯선 게 아니라, 그 앞의 내가 낯설었다" data-number="224307425457" data-find="[ai, 사유의 거울 09] 30일간의 산책(4화) - ai가 낯선 게 아니라, 그 앞의 내가 낯설었다 224307425457" data-ig="2026-10-23T07:57:57.788Z" data-th="2026-10-23T07:58:41.959Z" data-fb="2026-10-23T07:59:24.527Z" data-yt="2026-10-23T08:00:00.095Z" hidden>
       <img src="thumbs/clip_source_20260606_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-06 · 깊음 · No.5457</span>
         <span class="title">[AI, 사유의 거울 09] 30일간의 산책(4화) - AI가 낯선 게 아니라, 그 앞의 내가 낯설었다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224296559221" target="_blank" rel="noopener" data-clip="clip_source_20260527_01" data-title="마케터의문장[33] - 방법보다 먼저 있어야 할 것 (ft. 나 사용설명서) (28/33)" data-find="마케터의문장[33] - 방법보다 먼저 있어야 할 것 (ft. 나 사용설명서) (28/33) 224296559221" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224296559221" target="_blank" rel="noopener" data-clip="clip_source_20260527_01" data-title="마케터의문장[33] - 방법보다 먼저 있어야 할 것 (ft. 나 사용설명서) (28/33)" data-number="224296559221" data-find="마케터의문장[33] - 방법보다 먼저 있어야 할 것 (ft. 나 사용설명서) (28/33) 224296559221" data-ig="2026-10-23T02:48:00.258Z" data-th="2026-10-23T02:48:38.583Z" data-fb="2026-10-23T02:49:22.666Z" data-yt="2026-10-23T02:50:04.848Z" hidden>
       <img src="thumbs/clip_source_20260527_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-27 · 깊음 · No.9221</span>
         <span class="title">마케터의문장[33] - 방법보다 먼저 있어야 할 것 (ft. 나 사용설명서) (28/33)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224444438255" target="_blank" rel="noopener" data-clip="clip_source_20261018_01" data-title="[통찰 89] 파도는 바다의 일, 항해는 시스템의 일" data-find="[통찰 89] 파도는 바다의 일, 항해는 시스템의 일 224444438255" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224444438255" target="_blank" rel="noopener" data-clip="clip_source_20261018_01" data-title="[통찰 89] 파도는 바다의 일, 항해는 시스템의 일" data-number="224444438255" data-find="[통찰 89] 파도는 바다의 일, 항해는 시스템의 일 224444438255" data-yt="2026-10-23T00:29:14.317Z" data-ig="2026-10-23T00:31:41.652Z" data-th="2026-10-23T00:32:18.070Z" data-fb="2026-10-23T00:32:54.627Z" hidden>
       <img src="thumbs/clip_source_20261018_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-18 · 열정 · No.8255</span>
         <span class="title">[통찰 89] 파도는 바다의 일, 항해는 시스템의 일</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224295206266" target="_blank" rel="noopener" data-clip="clip_source_20260525_01" data-title="[프리라이팅 155] 30개월이 지나고 나서야 알게 된 것" data-find="[프리라이팅 155] 30개월이 지나고 나서야 알게 된 것 224295206266" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224295206266" target="_blank" rel="noopener" data-clip="clip_source_20260525_01" data-title="[프리라이팅 155] 30개월이 지나고 나서야 알게 된 것" data-number="224295206266" data-find="[프리라이팅 155] 30개월이 지나고 나서야 알게 된 것 224295206266" data-ig="2026-10-22T11:27:50.165Z" data-th="2026-10-22T11:28:24.712Z" data-fb="2026-10-22T11:29:13.474Z" data-yt="2026-10-22T11:29:56.418Z" hidden>
       <img src="thumbs/clip_source_20260525_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-25 · 열정 · No.6266</span>
         <span class="title">[프리라이팅 155] 30개월이 지나고 나서야 알게 된 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224290962857" target="_blank" rel="noopener" data-clip="clip_source_20260521_01" data-title="[019 나를 세우는 글쓰기] 질문이 질문을 낳는 삶" data-find="[019 나를 세우는 글쓰기] 질문이 질문을 낳는 삶 224290962857" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224290962857" target="_blank" rel="noopener" data-clip="clip_source_20260521_01" data-title="[019 나를 세우는 글쓰기] 질문이 질문을 낳는 삶" data-number="224290962857" data-find="[019 나를 세우는 글쓰기] 질문이 질문을 낳는 삶 224290962857" data-ig="2026-10-22T07:57:51.109Z" data-th="2026-10-22T07:58:27.664Z" data-fb="2026-10-22T07:59:20.898Z" data-yt="2026-10-22T08:00:04.446Z" hidden>
       <img src="thumbs/clip_source_20260521_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-21 · 깊음 · No.2857</span>
         <span class="title">[019 나를 세우는 글쓰기] 질문이 질문을 낳는 삶</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224289975798" target="_blank" rel="noopener" data-clip="clip_source_20260520_01" data-title="[마케터-thinking 22] 번뜩임만으로는 충분하지 않다" data-find="[마케터-thinking 22] 번뜩임만으로는 충분하지 않다 224289975798" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224289975798" target="_blank" rel="noopener" data-clip="clip_source_20260520_01" data-title="[마케터-thinking 22] 번뜩임만으로는 충분하지 않다" data-number="224289975798" data-find="[마케터-thinking 22] 번뜩임만으로는 충분하지 않다 224289975798" data-ig="2026-10-22T02:47:26.177Z" data-th="2026-10-22T02:48:01.361Z" data-fb="2026-10-22T02:48:47.390Z" data-yt="2026-10-22T02:49:22.827Z" hidden>
       <img src="thumbs/clip_source_20260520_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-20 · 열정 · No.5798</span>
         <span class="title">[마케터-thinking 22] 번뜩임만으로는 충분하지 않다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224447079548" target="_blank" rel="noopener" data-clip="clip_source_20261020_01" data-title="[글쓰기_클래스 14] 훔치는 글쓰기 (1/10) - 내 블로그는 &#39;도둑질 파일&#39;의 묶음이다?" data-find="[글쓰기_클래스 14] 훔치는 글쓰기 (1/10) - 내 블로그는 &#39;도둑질 파일&#39;의 묶음이다? 224447079548" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224447079548" target="_blank" rel="noopener" data-clip="clip_source_20261020_01" data-title="[글쓰기_클래스 14] 훔치는 글쓰기 (1/10) - 내 블로그는 &#39;도둑질 파일&#39;의 묶음이다?" data-number="224447079548" data-find="[글쓰기_클래스 14] 훔치는 글쓰기 (1/10) - 내 블로그는 &#39;도둑질 파일&#39;의 묶음이다? 224447079548" data-ig="2026-10-21T23:32:55.257Z" data-th="2026-10-21T23:33:30.138Z" data-fb="2026-10-21T23:34:11.350Z" data-yt="2026-10-21T23:34:47.082Z" hidden>
       <img src="thumbs/clip_source_20261020_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-20 · 열정 · No.9548</span>
         <span class="title">[글쓰기_클래스 14] 훔치는 글쓰기 (1/10) - 내 블로그는 &#39;도둑질 파일&#39;의 묶음이다?</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224293242451" target="_blank" rel="noopener" data-clip="clip_source_20260523_01" data-title="[통찰 79] 뇌 사용 설명서 (XI) - 뇌는 미완성을 싫어한다 (미완성이 쓰게 만드는 힘의 원천일까)" data-find="[통찰 79] 뇌 사용 설명서 (xi) - 뇌는 미완성을 싫어한다 (미완성이 쓰게 만드는 힘의 원천일까) 224293242451" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224293242451" target="_blank" rel="noopener" data-clip="clip_source_20260523_01" data-title="[통찰 79] 뇌 사용 설명서 (XI) - 뇌는 미완성을 싫어한다 (미완성이 쓰게 만드는 힘의 원천일까)" data-number="224293242451" data-find="[통찰 79] 뇌 사용 설명서 (xi) - 뇌는 미완성을 싫어한다 (미완성이 쓰게 만드는 힘의 원천일까) 224293242451" data-ig="2026-10-21T11:28:00.039Z" data-th="2026-10-21T11:29:01.139Z" data-fb="2026-10-21T11:29:52.577Z" data-yt="2026-10-21T11:30:22.554Z" hidden>
       <img src="thumbs/clip_source_20260523_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-23 · 열정 · No.2451</span>
         <span class="title">[통찰 79] 뇌 사용 설명서 (XI) - 뇌는 미완성을 싫어한다 (미완성이 쓰게 만드는 힘의 원천일까)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224292740652" target="_blank" rel="noopener" data-clip="clip_source_20260522_01" data-title="[175] 마케터의靈感 - 땀의 대가인가, 리스크의 대가인가 (ft. 근데 피지컬AI는 계산에 넣었어?)" data-find="[175] 마케터의靈感 - 땀의 대가인가, 리스크의 대가인가 (ft. 근데 피지컬ai는 계산에 넣었어?) 224292740652" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224292740652" target="_blank" rel="noopener" data-clip="clip_source_20260522_01" data-title="[175] 마케터의靈感 - 땀의 대가인가, 리스크의 대가인가 (ft. 근데 피지컬AI는 계산에 넣었어?)" data-number="224292740652" data-find="[175] 마케터의靈感 - 땀의 대가인가, 리스크의 대가인가 (ft. 근데 피지컬ai는 계산에 넣었어?) 224292740652" data-ig="2026-10-21T07:55:57.326Z" data-th="2026-10-21T07:56:40.786Z" data-fb="2026-10-21T07:57:16.386Z" data-yt="2026-10-21T07:57:58.475Z" hidden>
       <img src="thumbs/clip_source_20260522_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-22 · 깊음 · No.0652</span>
         <span class="title">[175] 마케터의靈感 - 땀의 대가인가, 리스크의 대가인가 (ft. 근데 피지컬AI는 계산에 넣었어?)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224294577910" target="_blank" rel="noopener" data-clip="clip_source_20260524_01" data-title="[COSMOS_Log.003] 먼지보다 작은 존재가 우주를 들여다본다는 것" data-find="[cosmos_log.003] 먼지보다 작은 존재가 우주를 들여다본다는 것 224294577910" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224294577910" target="_blank" rel="noopener" data-clip="clip_source_20260524_01" data-title="[COSMOS_Log.003] 먼지보다 작은 존재가 우주를 들여다본다는 것" data-number="224294577910" data-find="[cosmos_log.003] 먼지보다 작은 존재가 우주를 들여다본다는 것 224294577910" data-ig="2026-10-21T02:47:02.741Z" data-th="2026-10-21T02:47:40.530Z" data-fb="2026-10-21T02:48:24.440Z" data-yt="2026-10-21T02:49:04.510Z" hidden>
       <img src="thumbs/clip_source_20260524_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-24 · 깊음 · No.7910</span>
         <span class="title">[COSMOS_Log.003] 먼지보다 작은 존재가 우주를 들여다본다는 것</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224437823917" target="_blank" rel="noopener" data-clip="clip_source_20261013_01" data-title="[글쓰기_클래스 13] 훔치는 글쓰기 - 프롤로그 (ft. 창작일까, 기획일까)" data-find="[글쓰기_클래스 13] 훔치는 글쓰기 - 프롤로그 (ft. 창작일까, 기획일까) 224437823917" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224437823917" target="_blank" rel="noopener" data-clip="clip_source_20261013_01" data-title="[글쓰기_클래스 13] 훔치는 글쓰기 - 프롤로그 (ft. 창작일까, 기획일까)" data-number="224437823917" data-find="[글쓰기_클래스 13] 훔치는 글쓰기 - 프롤로그 (ft. 창작일까, 기획일까) 224437823917" data-ig="2026-10-20T23:33:14.236Z" data-th="2026-10-20T23:33:49.649Z" data-fb="2026-10-20T23:34:21.829Z" data-yt="2026-10-20T23:35:12.761Z" hidden>
       <img src="thumbs/clip_source_20261013_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-13 · 깊음 · No.3917</span>
         <span class="title">[글쓰기_클래스 13] 훔치는 글쓰기 - 프롤로그 (ft. 창작일까, 기획일까)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224295630570" target="_blank" rel="noopener" data-clip="clip_source_20260526_01" data-title="[38] 1일 1포스팅 헬퍼 - 글을 쓰며 발견하는 &#39;진짜 나&#39; (ft. 眞面目)" data-find="[38] 1일 1포스팅 헬퍼 - 글을 쓰며 발견하는 &#39;진짜 나&#39; (ft. 眞面目) 224295630570" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224295630570" target="_blank" rel="noopener" data-clip="clip_source_20260526_01" data-title="[38] 1일 1포스팅 헬퍼 - 글을 쓰며 발견하는 &#39;진짜 나&#39; (ft. 眞面目)" data-number="224295630570" data-find="[38] 1일 1포스팅 헬퍼 - 글을 쓰며 발견하는 &#39;진짜 나&#39; (ft. 眞面目) 224295630570" data-ig="2026-10-20T14:11:16.025Z" data-th="2026-10-20T08:29:47.759Z" data-fb="2026-10-20T08:30:29.091Z" data-yt="2026-10-20T08:31:06.562Z" hidden>
       <img src="thumbs/clip_source_20260526_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-26 · 깊음 · No.0570</span>
         <span class="title">[38] 1일 1포스팅 헬퍼 - 글을 쓰며 발견하는 &#39;진짜 나&#39; (ft. 眞面目)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224306033819" target="_blank" rel="noopener" data-clip="clip_source_20260605_01" data-title="[공감,작은 생각 196] 사과란 무엇인가(3/3) - 우리는 사과에 무엇을 기대하는가" data-find="[공감,작은 생각 196] 사과란 무엇인가(3/3) - 우리는 사과에 무엇을 기대하는가 224306033819" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224306033819" target="_blank" rel="noopener" data-clip="clip_source_20260605_01" data-title="[공감,작은 생각 196] 사과란 무엇인가(3/3) - 우리는 사과에 무엇을 기대하는가" data-number="224306033819" data-find="[공감,작은 생각 196] 사과란 무엇인가(3/3) - 우리는 사과에 무엇을 기대하는가 224306033819" data-ig="2026-10-19T11:27:54.266Z" data-th="2026-10-19T11:29:12.452Z" data-fb="2026-10-19T11:29:48.610Z" data-yt="2026-10-19T11:30:22.843Z" hidden>
       <img src="thumbs/clip_source_20260605_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-05 · 깊음 · No.3819</span>
         <span class="title">[공감,작은 생각 196] 사과란 무엇인가(3/3) - 우리는 사과에 무엇을 기대하는가</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224304564906" target="_blank" rel="noopener" data-clip="clip_source_20260604_01" data-title="[COSMOS_Log.004] 버릴 준비가 된 사람의 아키텍처란" data-find="[cosmos_log.004] 버릴 준비가 된 사람의 아키텍처란 224304564906" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224304564906" target="_blank" rel="noopener" data-clip="clip_source_20260604_01" data-title="[COSMOS_Log.004] 버릴 준비가 된 사람의 아키텍처란" data-number="224304564906" data-find="[cosmos_log.004] 버릴 준비가 된 사람의 아키텍처란 224304564906" data-ig="2026-10-19T07:56:11.304Z" data-th="2026-10-19T07:56:50.440Z" data-fb="2026-10-19T07:57:32.643Z" data-yt="2026-10-19T07:58:16.009Z" hidden>
       <img src="thumbs/clip_source_20260604_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-04 · 깊음 · No.4906</span>
         <span class="title">[COSMOS_Log.004] 버릴 준비가 된 사람의 아키텍처란</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224435708944" target="_blank" rel="noopener" data-clip="clip_source_20261009_01" data-title="마케터의문장[33] -  에필로그 (2/2) 쓴 문장 끝에는 당신이 있다" data-find="마케터의문장[33] -  에필로그 (2/2) 쓴 문장 끝에는 당신이 있다 224435708944" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224435708944" target="_blank" rel="noopener" data-clip="clip_source_20261009_01" data-title="마케터의문장[33] -  에필로그 (2/2) 쓴 문장 끝에는 당신이 있다" data-number="224435708944" data-find="마케터의문장[33] -  에필로그 (2/2) 쓴 문장 끝에는 당신이 있다 224435708944" data-ig="2026-10-19T05:30:31.625Z" data-th="2026-10-18T23:34:21.660Z" data-fb="2026-10-18T23:35:03.597Z" data-yt="2026-10-18T23:35:38.097Z" hidden>
       <img src="thumbs/clip_source_20261009_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-09 · 열정 · No.8944</span>
         <span class="title">마케터의문장[33] -  에필로그 (2/2) 쓴 문장 끝에는 당신이 있다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224302409719" target="_blank" rel="noopener" data-clip="clip_source_20260602_01" data-title="[공감,작은 생각 195] 사과란 무엇인가(2/3) - 진정한 사과란 어떤 모습인가" data-find="[공감,작은 생각 195] 사과란 무엇인가(2/3) - 진정한 사과란 어떤 모습인가 224302409719" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224302409719" target="_blank" rel="noopener" data-clip="clip_source_20260602_01" data-title="[공감,작은 생각 195] 사과란 무엇인가(2/3) - 진정한 사과란 어떤 모습인가" data-number="224302409719" data-find="[공감,작은 생각 195] 사과란 무엇인가(2/3) - 진정한 사과란 어떤 모습인가 224302409719" data-ig="2026-10-19T02:45:53.323Z" data-th="2026-10-19T02:46:36.124Z" data-fb="2026-10-19T02:47:20.853Z" data-yt="2026-10-19T02:47:59.625Z" hidden>
       <img src="thumbs/clip_source_20260602_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-02 · 깊음 · No.9719</span>
         <span class="title">[공감,작은 생각 195] 사과란 무엇인가(2/3) - 진정한 사과란 어떤 모습인가</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224299174207" target="_blank" rel="noopener" data-clip="clip_source_20260529_01" data-title="[마케터-thinking 23] 거절의 미학(1부) : 오늘도 거절당했다 (ft. 시간의 벽)" data-find="[마케터-thinking 23] 거절의 미학(1부) : 오늘도 거절당했다 (ft. 시간의 벽) 224299174207" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224299174207" target="_blank" rel="noopener" data-clip="clip_source_20260529_01" data-title="[마케터-thinking 23] 거절의 미학(1부) : 오늘도 거절당했다 (ft. 시간의 벽)" data-number="224299174207" data-find="[마케터-thinking 23] 거절의 미학(1부) : 오늘도 거절당했다 (ft. 시간의 벽) 224299174207" data-yt="2026-10-18T11:31:02.918Z" data-ig="2026-10-18T11:34:26.628Z" data-th="2026-10-18T11:35:03.744Z" data-fb="2026-10-18T11:35:46.141Z" hidden>
       <img src="thumbs/clip_source_20260529_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-29 · 깊음 · No.4207</span>
         <span class="title">[마케터-thinking 23] 거절의 미학(1부) : 오늘도 거절당했다 (ft. 시간의 벽)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224298345843" target="_blank" rel="noopener" data-clip="clip_source_20260528_01" data-title="[사진,짧은 단상 100] 사람이 눈에 들어오기 시작했다" data-find="[사진,짧은 단상 100] 사람이 눈에 들어오기 시작했다 224298345843" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224298345843" target="_blank" rel="noopener" data-clip="clip_source_20260528_01" data-title="[사진,짧은 단상 100] 사람이 눈에 들어오기 시작했다" data-number="224298345843" data-find="[사진,짧은 단상 100] 사람이 눈에 들어오기 시작했다 224298345843" data-yt="2026-10-18T05:30:44.324Z" data-ig="2026-10-18T05:34:10.857Z" data-th="2026-10-18T05:34:37.675Z" data-fb="2026-10-18T05:35:09.582Z" hidden>
       <img src="thumbs/clip_source_20260528_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-28 · 깊음 · No.5843</span>
         <span class="title">[사진,짧은 단상 100] 사람이 눈에 들어오기 시작했다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224434599276" target="_blank" rel="noopener" data-clip="clip_source_20261008_01" data-title="마케터의문장[33] -  에필로그 (1/2) 머무른 문장에는 내가 있다" data-find="마케터의문장[33] -  에필로그 (1/2) 머무른 문장에는 내가 있다 224434599276" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224434599276" target="_blank" rel="noopener" data-clip="clip_source_20261008_01" data-title="마케터의문장[33] -  에필로그 (1/2) 머무른 문장에는 내가 있다" data-number="224434599276" data-find="마케터의문장[33] -  에필로그 (1/2) 머무른 문장에는 내가 있다 224434599276" data-yt="2026-10-18T00:15:03.749Z" data-ig="2026-10-17T23:30:50.527Z" data-th="2026-10-17T23:31:28.564Z" data-fb="2026-10-17T23:32:00.321Z" hidden>
       <img src="thumbs/clip_source_20261008_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-08 · 깊음 · No.9276</span>
         <span class="title">마케터의문장[33] -  에필로그 (1/2) 머무른 문장에는 내가 있다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224301147645" target="_blank" rel="noopener" data-clip="clip_source_20260531_01" data-title="[177] 마케터의靈感 - 꾸준함의 공식 (下)" data-find="[177] 마케터의靈感 - 꾸준함의 공식 (下) 224301147645" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224301147645" target="_blank" rel="noopener" data-clip="clip_source_20260531_01" data-title="[177] 마케터의靈感 - 꾸준함의 공식 (下)" data-number="224301147645" data-find="[177] 마케터의靈感 - 꾸준함의 공식 (下) 224301147645" data-yt="2026-10-17T11:30:39.014Z" data-ig="2026-10-17T11:30:56.210Z" data-th="2026-10-17T11:31:33.204Z" data-fb="2026-10-17T11:32:09.701Z" hidden>
       <img src="thumbs/clip_source_20260531_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-31 · 열정 · No.7645</span>
         <span class="title">[177] 마케터의靈感 - 꾸준함의 공식 (下)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224300226830" target="_blank" rel="noopener" data-clip="clip_source_20260530_01" data-title="[176] 마케터의靈感 - 꾸준함의 공식 (上)" data-find="[176] 마케터의靈感 - 꾸준함의 공식 (上) 224300226830" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224300226830" target="_blank" rel="noopener" data-clip="clip_source_20260530_01" data-title="[176] 마케터의靈感 - 꾸준함의 공식 (上)" data-number="224300226830" data-find="[176] 마케터의靈感 - 꾸준함의 공식 (上) 224300226830" data-yt="2026-10-17T05:30:41.683Z" data-ig="2026-10-17T05:30:49.859Z" data-th="2026-10-17T05:31:26.983Z" data-fb="2026-10-17T05:32:04.684Z" hidden>
       <img src="thumbs/clip_source_20260530_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-05-30 · 깊음 · No.6830</span>
         <span class="title">[176] 마케터의靈感 - 꾸준함의 공식 (上)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224441821029" target="_blank" rel="noopener" data-clip="clip_source_20261015_01" data-title="[프리라이팅 169] 늘 그랬듯이, 오늘도 헤맨다" data-find="[프리라이팅 169] 늘 그랬듯이, 오늘도 헤맨다 224441821029" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224441821029" target="_blank" rel="noopener" data-clip="clip_source_20261015_01" data-title="[프리라이팅 169] 늘 그랬듯이, 오늘도 헤맨다" data-number="224441821029" data-find="[프리라이팅 169] 늘 그랬듯이, 오늘도 헤맨다 224441821029" data-yt="2026-10-16T23:30:42.413Z" data-ig="2026-10-16T23:30:55.963Z" data-th="2026-10-16T23:31:31.958Z" data-fb="2026-10-16T23:32:03.107Z" hidden>
       <img src="thumbs/clip_source_20261015_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-15 · 깊음 · No.1029</span>
         <span class="title">[프리라이팅 169] 늘 그랬듯이, 오늘도 헤맨다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224301536731" target="_blank" rel="noopener" data-clip="clip_source_20260601_01" data-title="[공감,작은 생각 194] 사과란 무엇인가(1/3) - 나는 왜 이 사과가 불편할까" data-find="[공감,작은 생각 194] 사과란 무엇인가(1/3) - 나는 왜 이 사과가 불편할까 224301536731" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224301536731" target="_blank" rel="noopener" data-clip="clip_source_20260601_01" data-title="[공감,작은 생각 194] 사과란 무엇인가(1/3) - 나는 왜 이 사과가 불편할까" data-number="224301536731" data-find="[공감,작은 생각 194] 사과란 무엇인가(1/3) - 나는 왜 이 사과가 불편할까 224301536731" data-yt="2026-10-16T05:31:04.453Z" data-ig="2026-10-16T05:31:15.582Z" data-th="2026-10-16T05:31:54.515Z" data-fb="2026-10-16T11:30:44.325Z" hidden>
       <img src="thumbs/clip_source_20260601_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-01 · 깊음 · No.6731</span>
         <span class="title">[공감,작은 생각 194] 사과란 무엇인가(1/3) - 나는 왜 이 사과가 불편할까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224433348543" target="_blank" rel="noopener" data-clip="clip_source_20261007_01" data-title="[공감,작은 생각 201] 내 글의 레퍼런스는 내 글이다 (ft. &#39;사유트리&#39;에 대하여)" data-find="[공감,작은 생각 201] 내 글의 레퍼런스는 내 글이다 (ft. &#39;사유트리&#39;에 대하여) 224433348543" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224433348543" target="_blank" rel="noopener" data-clip="clip_source_20261007_01" data-title="[공감,작은 생각 201] 내 글의 레퍼런스는 내 글이다 (ft. &#39;사유트리&#39;에 대하여)" data-number="224433348543" data-find="[공감,작은 생각 201] 내 글의 레퍼런스는 내 글이다 (ft. &#39;사유트리&#39;에 대하여) 224433348543" data-yt="2026-10-15T23:31:02.801Z" data-ig="2026-10-15T23:31:44.722Z" data-th="2026-10-15T23:32:22.250Z" data-fb="2026-10-15T23:32:53.154Z" hidden>
       <img src="thumbs/clip_source_20261007_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-07 · 깊음 · No.8543</span>
         <span class="title">[공감,작은 생각 201] 내 글의 레퍼런스는 내 글이다 (ft. &#39;사유트리&#39;에 대하여)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224303536811" target="_blank" rel="noopener" data-clip="clip_source_20260603_01" data-title="마케터의문장[33] - 마케터는 확률의 사람이다 (29/33)" data-find="마케터의문장[33] - 마케터는 확률의 사람이다 (29/33) 224303536811" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224303536811" target="_blank" rel="noopener" data-clip="clip_source_20260603_01" data-title="마케터의문장[33] - 마케터는 확률의 사람이다 (29/33)" data-number="224303536811" data-find="마케터의문장[33] - 마케터는 확률의 사람이다 (29/33) 224303536811" data-yt="2026-10-15T11:30:53.494Z" data-ig="2026-10-15T11:31:11.043Z" data-th="2026-10-15T11:31:48.336Z" data-fb="2026-10-15T11:32:30.737Z" hidden>
       <img src="thumbs/clip_source_20260603_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-03 · 깊음 · No.6811</span>
         <span class="title">마케터의문장[33] - 마케터는 확률의 사람이다 (29/33)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224307607460" target="_blank" rel="noopener" data-clip="clip_source_20260607_01" data-title="[作家視線 4] 우리는 왜, 처음과 달라지는 걸까요" data-find="[作家視線 4] 우리는 왜, 처음과 달라지는 걸까요 224307607460" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224307607460" target="_blank" rel="noopener" data-clip="clip_source_20260607_01" data-title="[作家視線 4] 우리는 왜, 처음과 달라지는 걸까요" data-number="224307607460" data-find="[作家視線 4] 우리는 왜, 처음과 달라지는 걸까요 224307607460" data-yt="2026-10-13T03:12:44.245Z" data-ig="2026-10-13T03:12:51.205Z" data-th="2026-10-13T03:13:03.638Z" data-fb="2026-10-15T07:45:44.982Z" hidden>
       <img src="thumbs/clip_source_20260607_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-07 · 깊음 · No.7460</span>
         <span class="title">[作家視線 4] 우리는 왜, 처음과 달라지는 걸까요</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224308360753" target="_blank" rel="noopener" data-clip="clip_source_20260608_01" data-title="[020 나를 세우는 글쓰기] 마음이 소란스러울 때 글을 씁니다" data-find="[020 나를 세우는 글쓰기] 마음이 소란스러울 때 글을 씁니다 224308360753" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224308360753" target="_blank" rel="noopener" data-clip="clip_source_20260608_01" data-title="[020 나를 세우는 글쓰기] 마음이 소란스러울 때 글을 씁니다" data-number="224308360753" data-find="[020 나를 세우는 글쓰기] 마음이 소란스러울 때 글을 씁니다 224308360753" data-yt="2026-10-13T06:57:54.905Z" data-ig="2026-10-13T06:58:07.440Z" data-th="2026-10-13T06:58:43.068Z" data-fb="2026-10-15T07:31:12.421Z" hidden>
       <img src="thumbs/clip_source_20260608_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-08 · 서정 · No.0753</span>
         <span class="title">[020 나를 세우는 글쓰기] 마음이 소란스러울 때 글을 씁니다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224425398248" target="_blank" rel="noopener" data-clip="clip_source_20260929_01" data-title="[第16書信] 탐색이 창작을 삼킨다" data-find="[第16書信] 탐색이 창작을 삼킨다 224425398248" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224425398248" target="_blank" rel="noopener" data-clip="clip_source_20260929_01" data-title="[第16書信] 탐색이 창작을 삼킨다" data-number="224425398248" data-find="[第16書信] 탐색이 창작을 삼킨다 224425398248" data-fb="2026-10-13T11:27:25.445Z" data-yt="2026-10-14T23:31:17.941Z" data-ig="2026-10-14T23:33:04.942Z" data-th="2026-10-14T23:33:41.490Z" hidden>
       <img src="thumbs/clip_source_20260929_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-09-29 · 깊음 · No.8248</span>
         <span class="title">[第16書信] 탐색이 창작을 삼킨다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224313397059" target="_blank" rel="noopener" data-clip="clip_source_20260612_01" data-title="[1퍼센트 진화론] 02. 왜 100%가 아니라 1%인가 (ft. 크기가 아니라 방향이 문제라네 ^^)" data-find="[1퍼센트 진화론] 02. 왜 100%가 아니라 1%인가 (ft. 크기가 아니라 방향이 문제라네 ^^) 224313397059" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224313397059" target="_blank" rel="noopener" data-clip="clip_source_20260612_01" data-title="[1퍼센트 진화론] 02. 왜 100%가 아니라 1%인가 (ft. 크기가 아니라 방향이 문제라네 ^^)" data-number="224313397059" data-find="[1퍼센트 진화론] 02. 왜 100%가 아니라 1%인가 (ft. 크기가 아니라 방향이 문제라네 ^^) 224313397059" data-yt="2026-10-14T11:30:40.853Z" data-ig="2026-10-14T11:30:50.417Z" data-th="2026-10-14T11:31:24.549Z" data-fb="2026-10-14T11:32:07.520Z" hidden>
       <img src="thumbs/clip_source_20260612_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-12 · 열정 · No.7059</span>
         <span class="title">[1퍼센트 진화론] 02. 왜 100%가 아니라 1%인가 (ft. 크기가 아니라 방향이 문제라네 ^^)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224309739973" target="_blank" rel="noopener" data-clip="clip_source_20260609_01" data-title="[178] 마케터의靈感 - 나는 나를 위해 쓴다" data-find="[178] 마케터의靈感 - 나는 나를 위해 쓴다 224309739973" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224309739973" target="_blank" rel="noopener" data-clip="clip_source_20260609_01" data-title="[178] 마케터의靈感 - 나는 나를 위해 쓴다" data-number="224309739973" data-find="[178] 마케터의靈感 - 나는 나를 위해 쓴다 224309739973" data-yt="2026-10-13T12:49:04.465Z" data-ig="2026-10-13T12:48:49.367Z" data-th="2026-10-13T12:49:26.879Z" data-fb="2026-10-13T19:07:06.130Z" hidden>
       <img src="thumbs/clip_source_20260609_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-09 · 깊음 · No.9973</span>
         <span class="title">[178] 마케터의靈感 - 나는 나를 위해 쓴다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224311038046" target="_blank" rel="noopener" data-clip="clip_source_20260610_01" data-title="[1퍼센트 진화론] 01. 지금도 진화 중입니다 (ft. 프롤로그)" data-find="[1퍼센트 진화론] 01. 지금도 진화 중입니다 (ft. 프롤로그) 224311038046" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224311038046" target="_blank" rel="noopener" data-clip="clip_source_20260610_01" data-title="[1퍼센트 진화론] 01. 지금도 진화 중입니다 (ft. 프롤로그)" data-number="224311038046" data-find="[1퍼센트 진화론] 01. 지금도 진화 중입니다 (ft. 프롤로그) 224311038046" data-yt="2026-10-13T01:08:55.445Z" data-ig="2026-10-13T01:09:34.159Z" data-th="2026-10-13T01:09:48.035Z" data-fb="2026-10-13T12:56:41.138Z" hidden>
       <img src="thumbs/clip_source_20260610_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-10 · 열정 · No.8046</span>
         <span class="title">[1퍼센트 진화론] 01. 지금도 진화 중입니다 (ft. 프롤로그)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224312009197" target="_blank" rel="noopener" data-clip="clip_source_20260611_01" data-title="마케터의문장[33] - 블로거의 Can not과 Want (30/33)" data-find="마케터의문장[33] - 블로거의 can not과 want (30/33) 224312009197" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224312009197" target="_blank" rel="noopener" data-clip="clip_source_20260611_01" data-title="마케터의문장[33] - 블로거의 Can not과 Want (30/33)" data-number="224312009197" data-find="마케터의문장[33] - 블로거의 can not과 want (30/33) 224312009197" data-yt="2026-10-13T11:31:14.518Z" data-ig="2026-10-13T11:31:52.935Z" data-th="2026-10-13T11:32:33.566Z" data-fb="2026-10-13T12:34:09.990Z" hidden>
       <img src="thumbs/clip_source_20260611_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-06-11 · 열정 · No.9197</span>
         <span class="title">마케터의문장[33] - 블로거의 Can not과 Want (30/33)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224425602816" target="_blank" rel="noopener" data-clip="clip_source_20260930_01" data-title="마케터의문장[33] -  &quot;생각해 볼게요&quot;를 들은 다음 해야 할 것 (33/33)" data-find="마케터의문장[33] -  &quot;생각해 볼게요&quot;를 들은 다음 해야 할 것 (33/33) 224425602816" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224425602816" target="_blank" rel="noopener" data-clip="clip_source_20260930_01" data-title="마케터의문장[33] -  &quot;생각해 볼게요&quot;를 들은 다음 해야 할 것 (33/33)" data-number="224425602816" data-find="마케터의문장[33] -  &quot;생각해 볼게요&quot;를 들은 다음 해야 할 것 (33/33) 224425602816" data-yt="2026-10-13T04:24:05.461Z" data-ig="2026-10-13T04:24:10.554Z" data-th="2026-10-13T04:24:46.822Z" data-fb="2026-10-13T12:33:53.826Z" hidden>
       <img src="thumbs/clip_source_20260930_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-09-30 · 열정 · No.2816</span>
         <span class="title">마케터의문장[33] -  &quot;생각해 볼게요&quot;를 들은 다음 해야 할 것 (33/33)</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224426972731" target="_blank" rel="noopener" data-clip="clip_source_20261001_01" data-title="[199] 마케터의靈感 - SNS와 나의 오랜 모순(矛盾)에 대하여" data-find="[199] 마케터의靈感 - sns와 나의 오랜 모순(矛盾)에 대하여 224426972731" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224426972731" target="_blank" rel="noopener" data-clip="clip_source_20261001_01" data-title="[199] 마케터의靈感 - SNS와 나의 오랜 모순(矛盾)에 대하여" data-number="224426972731" data-find="[199] 마케터의靈感 - sns와 나의 오랜 모순(矛盾)에 대하여 224426972731" data-yt="2026-10-12T08:07:47.066Z" data-ig="2026-10-13T00:38:48.040Z" data-th="2026-10-13T00:39:00.930Z" data-fb="2026-10-13T12:16:11.233Z" hidden>
       <img src="thumbs/clip_source_20261001_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-01 · 깊음 · No.2731</span>
         <span class="title">[199] 마케터의靈感 - SNS와 나의 오랜 모순(矛盾)에 대하여</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224428628200" target="_blank" rel="noopener" data-clip="clip_source_20261002_01" data-title="[공감,작은 생각 200] 벤저민 프랭클린의 덕목(5/13) - 절약: 버린 게 아니라, 옮겨진 것은 아닐까" data-find="[공감,작은 생각 200] 벤저민 프랭클린의 덕목(5/13) - 절약: 버린 게 아니라, 옮겨진 것은 아닐까 224428628200" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224428628200" target="_blank" rel="noopener" data-clip="clip_source_20261002_01" data-title="[공감,작은 생각 200] 벤저민 프랭클린의 덕목(5/13) - 절약: 버린 게 아니라, 옮겨진 것은 아닐까" data-number="224428628200" data-find="[공감,작은 생각 200] 벤저민 프랭클린의 덕목(5/13) - 절약: 버린 게 아니라, 옮겨진 것은 아닐까 224428628200" data-yt="2026-10-10T23:59:32.404Z" data-ig="2026-10-13T00:47:44.478Z" data-th="2026-10-12T14:59:10.804Z" data-fb="2026-10-13T11:59:11.756Z" hidden>
       <img src="thumbs/clip_source_20261002_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-02 · 깊음 · No.8200</span>
         <span class="title">[공감,작은 생각 200] 벤저민 프랭클린의 덕목(5/13) - 절약: 버린 게 아니라, 옮겨진 것은 아닐까</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224429731307" target="_blank" rel="noopener" data-clip="clip_source_20261003_01" data-title="[프리라이팅 166] 애드포스트는 실패했고, 나는 성공했다" data-find="[프리라이팅 166] 애드포스트는 실패했고, 나는 성공했다 224429731307" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224429731307" target="_blank" rel="noopener" data-clip="clip_source_20261003_01" data-title="[프리라이팅 166] 애드포스트는 실패했고, 나는 성공했다" data-number="224429731307" data-find="[프리라이팅 166] 애드포스트는 실패했고, 나는 성공했다 224429731307" data-yt="2026-10-10T23:41:05.874Z" data-ig="2026-10-12T13:01:01.755Z" data-th="2026-10-12T14:49:33.777Z" data-fb="2026-10-13T11:34:14.740Z" hidden>
       <img src="thumbs/clip_source_20261003_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-03 · 깊음 · No.1307</span>
         <span class="title">[프리라이팅 166] 애드포스트는 실패했고, 나는 성공했다</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224436904375" target="_blank" rel="noopener" data-clip="clip_source_20261010_01" data-title="[공감,작은 생각 202] 한글날, 키보드 위의 세종대왕" data-find="[공감,작은 생각 202] 한글날, 키보드 위의 세종대왕 224436904375" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224436904375" target="_blank" rel="noopener" data-clip="clip_source_20261010_01" data-title="[공감,작은 생각 202] 한글날, 키보드 위의 세종대왕" data-number="224436904375" data-find="[공감,작은 생각 202] 한글날, 키보드 위의 세종대왕 224436904375" data-yt="2026-10-12T07:14:45.400Z" data-ig="2026-10-12T12:40:46.518Z" data-th="2026-10-12T14:12:46.102Z" data-fb="2026-10-13T11:15:54.705Z" hidden>
       <img src="thumbs/clip_source_20261010_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-10 · 깊음 · No.4375</span>
         <span class="title">[공감,작은 생각 202] 한글날, 키보드 위의 세종대왕</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
-    <a class="item" href="https://blog.naver.com/mjlee0001/224436938289" target="_blank" rel="noopener" data-clip="clip_source_20261011_01" data-title="[공감,작은 생각 203] 한글날, 키오스크 앞의 세종대왕" data-find="[공감,작은 생각 203] 한글날, 키오스크 앞의 세종대왕 224436938289" hidden>
+    <a class="item" href="https://blog.naver.com/mjlee0001/224436938289" target="_blank" rel="noopener" data-clip="clip_source_20261011_01" data-title="[공감,작은 생각 203] 한글날, 키오스크 앞의 세종대왕" data-number="224436938289" data-find="[공감,작은 생각 203] 한글날, 키오스크 앞의 세종대왕 224436938289" data-yt="2026-10-12T07:15:45.495Z" data-ig="2026-10-12T12:19:18.479Z" data-th="2026-10-12T13:30:30.261Z" data-fb="2026-10-13T11:02:51.358Z" hidden>
       <img src="thumbs/clip_source_20261011_01.jpg" alt="" loading="lazy">
       <div class="meta">
+        <span class="badge" hidden></span>
         <span class="date">2026-10-11 · 깊음 · No.8289</span>
         <span class="title">[공감,작은 생각 203] 한글날, 키오스크 앞의 세종대왕</span>
         <span class="go">블로그에서 원문 읽기 →</span>
       </div>
     </a>
+    </div>
+    <button id="more" class="more" type="button">더 보기</button>
   </section>
   <script>
   (function () {
-    var input = document.getElementById('find'), note = document.getElementById('findNote');
-    var items = Array.prototype.slice.call(document.querySelectorAll('a.item[data-find]'));
-    input.addEventListener('input', function () {
-      var q = input.value.trim().toLowerCase(), shown = 0;
+    var PAGE = 30;
+    var NAMES = { yt: 'YouTube', ig: 'Instagram', th: 'Threads', fb: 'Facebook' };
+    var list = document.getElementById('list'), input = document.getElementById('find'), note = document.getElementById('findNote'), more = document.getElementById('more');
+    var items = Array.prototype.slice.call(list.querySelectorAll('a.item[data-find]'));
+    var q = new URLSearchParams(location.search);
+    var from = (q.get('from') || '').toLowerCase();
+    if (!NAMES[from]) from = '';
+    var wanted = (q.get('n') || '').replace(/[^0-9]/g, '');
+
+    var ago = function (iso) {
+      var m = Math.max(0, Math.round((Date.now() - Date.parse(iso)) / 60000));
+      if (m < 60) return m <= 1 ? '방금' : m + '분 전';
+      var h = Math.round(m / 60);
+      if (h < 24) return h + '시간 전';
+      var d = Math.round(h / 24);
+      return d < 30 ? d + '일 전' : '';
+    };
+
+    // 프로필에서 왔으면 그 SNS에 올린 순서로 (그 SNS에 없는 글은 뒤에, 기존 순서 유지)
+    if (from) {
+      items = items.map(function (a, i) { return { a: a, i: i, at: a.getAttribute('data-' + from) || '' }; })
+        .sort(function (x, y) { return x.at === y.at ? x.i - y.i : (y.at > x.at ? 1 : -1); })
+        .map(function (x) { return x.a; });
+    }
+    // 글 번호로 왔으면 그 글을 맨 앞 큰 카드로
+    var featured = null;
+    if (wanted) {
+      for (var k = 0; k < items.length; k++) {
+        var num = items[k].getAttribute('data-number');
+        if (num && (num === wanted || (wanted.length >= 4 && num.slice(-wanted.length) === wanted))) { featured = items.splice(k, 1)[0]; items.unshift(featured); break; }
+      }
+    }
+    items.forEach(function (a) { list.appendChild(a); });
+
+    // 프로필에서 왔으면 각 글에 그 SNS 게시 일시를 함께 표시 (예: Instagram 11. 16. 08:33 게시)
+    if (from) {
+      var pad = function (v) { return (v < 10 ? '0' : '') + v; };
+      items.forEach(function (a) {
+        var at = a.getAttribute('data-' + from);
+        if (!at) return;
+        var t = new Date(at), span = document.createElement('span');
+        span.className = 'date posted';
+        span.textContent = NAMES[from] + ' ' + (t.getMonth() + 1) + '. ' + t.getDate() + '. ' + pad(t.getHours()) + ':' + pad(t.getMinutes()) + ' 게시';
+        a.querySelector('.title').before(span);
+      });
+    }
+
+    // 프로필에서 왔으면 맨 위에 "최근 이틀 동안 그 SNS에 올라온 글" 커버 격자 (D-104)
+    // 조회의 93~97%가 게시 당일 · 다음 날에 일어남 → 본 영상은 대부분 여기에 있음. 이틀 안 게시가 없으면 최신 6편
+    if (from && !featured) {
+      var cutoff = Date.now() - 48 * 3600000;
+      var posted = items.filter(function (a) { return a.getAttribute('data-' + from); });
+      var recent = posted.filter(function (a) { return Date.parse(a.getAttribute('data-' + from)) >= cutoff; }).slice(0, 12);
+      var withinWindow = recent.length > 0;
+      if (!withinWindow) recent = posted.slice(0, 6);
+      if (recent.length) {
+        var grid = document.getElementById('recentGrid');
+        recent.forEach(function (a) {
+          var tile = a.cloneNode(true), at = a.getAttribute('data-' + from);
+          tile.className = 'tile';
+          tile.hidden = false;
+          tile.removeAttribute('data-find');
+          var b = tile.querySelector('.badge');
+          b.textContent = ago(at) || '';
+          b.hidden = !b.textContent;
+          grid.appendChild(tile);
+        });
+        document.getElementById('recentTitle').textContent = withinWindow
+          ? '최근 이틀 동안 ' + NAMES[from] + '에 올라온 글 ' + recent.length + '편'
+          : NAMES[from] + '에 최근 올라온 글';
+        document.getElementById('recent').hidden = false;
+      }
+    }
+    if (featured) {
+      featured.classList.add('featured');
+      var badge = featured.querySelector('.badge');
+      badge.textContent = '찾으시는 글';
+      badge.hidden = false;
+    }
+
+    var limit = PAGE;
+    var draw = function () {
+      var text = input.value.trim().toLowerCase(), shown = 0;
       items.forEach(function (a, i) {
-        var show = q ? a.getAttribute('data-find').indexOf(q) >= 0 : i < 30;
+        var show = text ? a.getAttribute('data-find').indexOf(text) >= 0 : i < limit;
         a.hidden = !show; if (show) shown++;
       });
-      note.textContent = q ? '찾은 글 ' + shown + '편' : '최근 30편 · 전체 131편';
-    });
+      if (text) note.textContent = '찾은 글 ' + shown + '편';
+      else note.textContent = (from ? NAMES[from] + '에 올라온 순서 · ' : '최근 순서 · ') + shown + '편 / 전체 ' + items.length + '편';
+      more.hidden = !!text || limit >= items.length;
+    };
+    input.addEventListener('input', draw);
+    more.addEventListener('click', function () { limit += PAGE; draw(); });
+    draw();
   })();
 </script>
   <footer>
